@@ -1,8 +1,6 @@
 ## Jupyter collection
 
-You can use the [editor on GitHub](https://github.com/fr0gger/jupyter-collection/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+This repository is a collection of my some of my Jupyter Notebook applied to cybersecurity and threat intelligence. 
 
 ### Markdown
 
