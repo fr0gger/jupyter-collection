@@ -4,8 +4,9 @@
 
 This repository is a collection of my some of my Jupyter Notebook applied to cybersecurity and threat intelligence. 
 
-## [Strings Similarity Experimentation](https://github.com/fr0gger/jupyter-collection/blob/main/strings_similarity/Strings_Extraction.ipynb)
+### [Strings Similarity Experimentation](https://github.com/fr0gger/jupyter-collection/blob/main/strings_similarity/Strings_Extraction.ipynb)
 This notebook shows some experiementation with strings similarity using Jaccard distance, hashing and visualization. 
+
 Published: 25 July 2020
 
 # Support or Contact
