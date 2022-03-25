@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## Jupyter collection
 
 You can use the [editor on GitHub](https://github.com/fr0gger/jupyter-collection/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
 
