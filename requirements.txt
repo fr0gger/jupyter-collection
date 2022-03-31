@@ -1,0 +1,4 @@
+pandas
+msticpy
+beautifulsoup4
+numpy
