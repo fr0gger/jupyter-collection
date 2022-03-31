@@ -1,2 +1,3 @@
 pandas
 msticpy
+beautifulsoup4
