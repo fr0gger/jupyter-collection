@@ -6,11 +6,11 @@ This repository is a collection of some of my Jupyter Notebook applied to cybers
 
 ### [VT Domain Hunting using MSTICpy](https://fr0gger.github.io/jupyter-collection/vt_domain_hunting/VT_Domain_hunting.html)
 Simple notebook to hunt for domains relationship using [msticpy](https://msticpy.readthedocs.io/en/latest/).
-<br /> *Published: 19 May 2022*
+<br /> *Published: 19 May 2022* <br />
 
 ### [IoCExtractor using MSTICpy](https://fr0gger.github.io/jupyter-collection/iocextractor/IOCExtractor_.html)
 POC to extract Indicator of Compromised from url using [msticpy](https://msticpy.readthedocs.io/en/latest/).
-<br /> *Published: 31 March 2022*
+<br /> *Published: 31 March 2022* <br />
 
 ### [Strings Similarity Experimentation](https://fr0gger.github.io/jupyter-collection/strings_similarity/Strings_Extraction.html)
 This notebook shows some experiementation with strings similarity using Jaccard distance, hashing and visualization. 
