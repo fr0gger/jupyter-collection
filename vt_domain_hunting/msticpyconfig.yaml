@@ -1,0 +1,8 @@
+AzureSentinel:
+  Workspaces: {}
+TIProviders:
+  VirusTotal:
+    Args:
+      AuthKey: <APIKEY>
+    Primary: true
+    Provider: VirusTotal
