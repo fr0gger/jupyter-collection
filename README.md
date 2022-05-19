@@ -5,7 +5,7 @@ This repository is a collection of some of my Jupyter Notebook applied to cybers
 <br /><br />
 
 ### [VT Domain Hunting using MSTICpy](https://fr0gger.github.io/jupyter-collection/vt_domain_hunting/VT_Domain_hunting.html)
-Simple notebook to hunt for domains relationship using [msticpy](https://msticpy.readthedocs.io/en/latest/).
+Notebook to hunt for domains relationship using [msticpy](https://msticpy.readthedocs.io/en/latest/).
 <br /> *Published: 19 May 2022* <br />
 
 ### [IoCExtractor using MSTICpy](https://fr0gger.github.io/jupyter-collection/iocextractor/IOCExtractor_.html)
