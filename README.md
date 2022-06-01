@@ -4,6 +4,10 @@
 This repository is a collection of some of my Jupyter Notebook applied to cybersecurity and threat intelligence. If you want to play with the code you can run it [here](https://mybinder.org/v2/gh/fr0gger/jupyter-collection.git/HEAD)
 <br /><br />
 
+### [Conti Leaks Analysis](https://fr0gger.github.io/jupyter-collection/Conti_Leaks_Analysis/Conti_Leaks_Notebook_TR.html)
+This notebook demonstrates a simple way to analyze the Conti Leaks chat logs using Python and [msticpy](https://msticpy.readthedocs.io/en/latest/). It proposes a methodology for threat researchers and allows to extract relevant information using Python and visualization.
+<br /> *Published: 02 June 2022* <br />
+
 ### [VT Domain Hunting using MSTICpy](https://fr0gger.github.io/jupyter-collection/vt_domain_hunting/VT_Domain_hunting.html)
 Notebook to hunt for domains relationship using [msticpy](https://msticpy.readthedocs.io/en/latest/).
 <br /> *Published: 19 May 2022* <br />
