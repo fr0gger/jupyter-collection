@@ -24,3 +24,5 @@ This notebook shows some experiementation with strings similarity using Jaccard 
 # Support or Contact
 
 You can contact me on Twitter: [@fr0gger_](https://twitter.com/fr0gger_)
+
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/SecurityBreak)
