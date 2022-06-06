@@ -1,5 +1,5 @@
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/fr0gger/jupyter-collection.git/HEAD)
-<link rel="shortcut icon" type="image/x-icon" href="whatever_folder_name/favicon.ico">
+
 # Notebooks
 This repository is a collection of some of my Jupyter Notebook applied to cybersecurity and threat intelligence. If you want to play with the code you can run it [here](https://mybinder.org/v2/gh/fr0gger/jupyter-collection.git/HEAD)
 <br /><br />
