@@ -4,6 +4,11 @@
 This repository is a collection of some of my Jupyter Notebook applied to cybersecurity and threat intelligence. If you want to play with the code you can run it [here](https://mybinder.org/v2/gh/fr0gger/jupyter-collection.git/HEAD)
 <br /><br />
 
+
+### [10 Python Lib for Malware Analysis and Reverse Engineering](https://fr0gger.github.io/jupyter-collection/10_pythonlib_for_RE/10_Python_Lib_for_Re_.html)
+This notebook demonstrates 10 python library useful for malware analysis and reverse engineering. 
+<br /> *Published: 08 June 2022* <br />
+
 ### [Conti Leaks Analysis](https://fr0gger.github.io/jupyter-collection/Conti_Leaks_Analysis/Conti_Leaks_Notebook_TR.html)
 This notebook demonstrates a simple way to analyze the Conti Leaks chat logs using Python and [msticpy](https://msticpy.readthedocs.io/en/latest/). It proposes a methodology for threat researchers and allows to extract relevant information using Python and visualization.
 <br /> *Published: 02 June 2022* <br />
