@@ -5,6 +5,10 @@ This repository is a collection of some of my Jupyter Notebook applied to cybers
 <br /><br />
 
 
+### [Malware Bazaar Lookup Using MSTICpy](https://fr0gger.github.io/jupyter-collection/mblookup/MBlookup.html)
+This notebook demonstrates how to use MSTICpy to query the Malware Bazaar database. 
+<br /> *Published: 08 June 2022* <br />
+
 ### [10 Python Libs for Malware Analysis and Reverse Engineering](https://fr0gger.github.io/jupyter-collection/10_pythonlib_for_RE/10_Python_Lib_for_Re_.html)
 This notebook demonstrates 10 python libraries useful for malware analysis and reverse engineering. 
 <br /> *Published: 08 June 2022* <br />
