@@ -5,7 +5,7 @@ This repository is a collection of some of my Jupyter Notebook applied to cybers
 <br /><br />
 
 
-### [Malware Bazaar Lookup Using MSTICpy](https://fr0gger.github.io/jupyter-collection/mblookup/MBlookup.html)
+### [Malware Bazaar Lookup Using MSTICpy](https://fr0gger.github.io/jupyter-collection/mblookup/MBLookup.html)
 This notebook demonstrates how to use MSTICpy to query the Malware Bazaar database. 
 <br /> *Published: 12 August 2022* <br />
 
