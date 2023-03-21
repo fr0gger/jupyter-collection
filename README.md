@@ -4,11 +4,13 @@
 This repository is a collection of some of my Jupyter Notebook applied to cybersecurity and threat intelligence. If you want to play with the code you can run it [here](https://mybinder.org/v2/gh/fr0gger/jupyter-collection.git/HEAD)
 <br /><br />
 
+### [Pulsedive Lookup Using MSTICpy](https://fr0gger.github.io/jupyter-collection/pulsedive_lookup/PulsediveLookup.html)
+This notebook demonstrates how to use MSTICpy to query Pulsedive. 
+<br /> *Published: 10 March 2023* <br />
+
 ### [ELK Threat Hunting](https://fr0gger.github.io/jupyter-collection/ELK_Threat_Hunting/ELK_Threat_Hunting.html)
 This notebook show how to connect to an ElasticSearch instance to retrieve the data and analyse them. The dataset used here is from MalwareBazaar.
 <br /> *Published: 10 September 2022* <br />
-
-
 
 ### [Malware Bazaar Lookup Using MSTICpy](https://fr0gger.github.io/jupyter-collection/mblookup/MBLookup.html)
 This notebook demonstrates how to use MSTICpy to query the Malware Bazaar database. 
