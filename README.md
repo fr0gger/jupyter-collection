@@ -4,6 +4,10 @@
 This repository is a collection of some of my Jupyter Notebook applied to cybersecurity and threat intelligence. If you want to play with the code you can run it [here](https://mybinder.org/v2/gh/fr0gger/jupyter-collection.git/HEAD)
 <br /><br />
 
+### [Threat Report Summarization Using LLMs and Few-Shot Learning](https://fr0gger.github.io/jupyter-collection/Threat_Report_Summarization/Threat_Summarization_Few_shot_learning.html)
+This notebook is an experiment designed to demonstrate the application of few-shot learning for summarizing threat reports and generating a mind map of the key findings.
+<br /> *Published: 27 September 2023* <br />
+
 ### [Pulsedive Lookup Using MSTICpy](https://fr0gger.github.io/jupyter-collection/pulsedive_lookup/PulsediveLookup.html)
 This notebook demonstrates how to use MSTICpy to query Pulsedive. 
 <br /> *Published: 10 March 2023* <br />
