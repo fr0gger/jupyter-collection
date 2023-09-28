@@ -13281,7 +13281,6 @@ div#notebook {
 <span class="kn">from</span> <span class="nn">bs4</span> <span class="k">import</span> <span class="n">BeautifulSoup</span>
 <span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="k">import</span> <span class="n">widgets</span>
 <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">display</span>
-<span class="kn">import</span> <span class="nn">cohere</span>
 <span class="kn">import</span> <span class="nn">openai</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">time</span>
@@ -13410,11 +13409,10 @@ div#notebook {
             <span class="n">mindmap_code</span> <span class="o">=</span> <span class="n">run_models</span><span class="p">(</span><span class="n">summary</span><span class="p">)</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">"Mindmap Code:"</span><span class="p">)</span>
             
-            <span class="n">cleaned_mindmap</span> <span class="o">=</span> <span class="n">remove_nested_parentheses</span><span class="p">(</span><span class="n">mindmap_code</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">cleaned_mindmap</span><span class="p">)</span>
+
             <span class="c1">#print("#########")</span>
-            <span class="c1">#print(mindmap_code)</span>
-            <span class="n">mermaid_chart</span><span class="p">(</span><span class="n">cleaned_mindmap</span><span class="p">)</span>
+            <span class="c1">print(mindmap_code)</span>
+            <span class="n">mermaid_chart</span><span class="p">(</span><span class="n">mindmap_code</span><span class="p">)</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">"Mindmap has been saved to 'mindmap.html'."</span><span class="p">)</span>
 
 <span class="c1"># Create widgets</span>
