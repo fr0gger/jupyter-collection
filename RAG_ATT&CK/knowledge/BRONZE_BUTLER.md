@@ -1,0 +1,60 @@
+# BRONZE BUTLER - G0060
+
+**Created**: 2018-01-16T16:13:52.465Z
+
+**Modified**: 2021-10-12T19:42:16.869Z
+
+**Contributors**: Trend Micro Incorporated
+
+## Aliases
+
+BRONZE BUTLER,REDBALDKNIGHT,Tick
+
+## Description
+
+[BRONZE BUTLER](https://attack.mitre.org/groups/G0060) is a cyber espionage group with likely Chinese origins that has been active since at least 2008. The group primarily targets Japanese organizations, particularly those in government, biotechnology, electronics manufacturing, and industrial chemistry.(Citation: Trend Micro Daserf Nov 2017)(Citation: Secureworks BRONZE BUTLER Oct 2017)(Citation: Trend Micro Tick November 2019)
+
+## Techniques Used
+
+|Matrix|Domain|Platform|Technique ID|Technique Name|Use|
+| :---| :---| :---| :---| :---| :---|
+|mitre-attack|enterprise-attack|PRE|T1588.002|Tool|[BRONZE BUTLER](https://attack.mitre.org/groups/G0060) has obtained and used open-source tools such as [Mimikatz](https://attack.mitre.org/software/S0002), [gsecdump](https://attack.mitre.org/software/S0008), and [Windows Credential Editor](https://attack.mitre.org/software/S0005).(Citation: Symantec Tick Apr 2016)|
+|mitre-attack|enterprise-attack|Windows|T1574.002|DLL Side-Loading|[BRONZE BUTLER](https://attack.mitre.org/groups/G0060) has used legitimate applications to side-load malicious DLLs.(Citation: Trend Micro Tick November 2019)|
+|mitre-attack|enterprise-attack|Windows,macOS,Linux|T1007|System Service Discovery|[BRONZE BUTLER](https://attack.mitre.org/groups/G0060) has used TROJ_GETVERSION to discover system services.(Citation: Trend Micro Tick November 2019)|
+|mitre-attack|enterprise-attack|Windows,macOS,Linux,Containers,IaaS|T1562.001|Disable or Modify Tools|[BRONZE BUTLER](https://attack.mitre.org/groups/G0060) has incorporated code into several tools that attempts to terminate anti-virus processes.(Citation: Trend Micro Tick November 2019)|
+|mitre-attack|enterprise-attack|Linux,macOS,Windows|T1027.003|Steganography|[BRONZE BUTLER](https://attack.mitre.org/groups/G0060) has used steganography in multiple operations to conceal malicious payloads.(Citation: Trend Micro Tick November 2019)|
+|mitre-attack|enterprise-attack|Windows,Azure AD,Office 365,SaaS,IaaS,Linux,macOS,Google Workspace|T1518|Software Discovery|[BRONZE BUTLER](https://attack.mitre.org/groups/G0060) has used tools to enumerate software installed on an infected host.(Citation: Trend Micro Tick November 2019)|
+|mitre-attack|enterprise-attack|Linux,macOS,Windows,Containers|T1036|Masquerading|[BRONZE BUTLER](https://attack.mitre.org/groups/G0060) has masked executables with document file icons including Word and Adobe PDF.(Citation: Trend Micro Tick November 2019)|
+|mitre-attack|enterprise-attack|Linux,Windows,macOS|T1059.006|Python|[BRONZE BUTLER](https://attack.mitre.org/groups/G0060) has made use of Python-based remote access tools.(Citation: Trend Micro Tick November 2019)|
+|mitre-attack|enterprise-attack|Linux,macOS,Windows|T1036.002|Right-to-Left Override|[BRONZE BUTLER](https://attack.mitre.org/groups/G0060) has used Right-to-Left Override to deceive victims into executing several strains of malware.(Citation: Trend Micro Tick November 2019)|
+|mitre-attack|enterprise-attack|Windows,Office 365,SaaS,Linux,macOS|T1080|Taint Shared Content|[BRONZE BUTLER](https://attack.mitre.org/groups/G0060) has placed malware on file shares and given it the same name as legitimate documents on the share.(Citation: Secureworks BRONZE BUTLER Oct 2017)|
+|mitre-attack|enterprise-attack|Windows,macOS,Linux|T1059.005|Visual Basic|[BRONZE BUTLER](https://attack.mitre.org/groups/G0060) has used VBS and VBE scripts for execution.(Citation: Secureworks BRONZE BUTLER Oct 2017)(Citation: Trend Micro Tick November 2019)|
+|mitre-attack|enterprise-attack|Windows|T1053.005|Scheduled Task|[BRONZE BUTLER](https://attack.mitre.org/groups/G0060) has used [schtasks](https://attack.mitre.org/software/S0111) to register a scheduled task to execute malware during lateral movement.(Citation: Secureworks BRONZE BUTLER Oct 2017)|
+|mitre-attack|enterprise-attack|macOS,Windows,Linux|T1566.001|Spearphishing Attachment|[BRONZE BUTLER](https://attack.mitre.org/groups/G0060) used spearphishing emails with malicious Microsoft Word attachments to infect victims.(Citation: Symantec Tick Apr 2016)(Citation: Trend Micro Tick November 2019)|
+|mitre-attack|enterprise-attack|Windows,Linux,macOS,SaaS|T1189|Drive-by Compromise|[BRONZE BUTLER](https://attack.mitre.org/groups/G0060) compromised three Japanese websites using a Flash exploit to perform watering hole attacks.(Citation: Symantec Tick Apr 2016)|
+|mitre-attack|enterprise-attack|Linux,macOS,Windows|T1204.002|Malicious File|[BRONZE BUTLER](https://attack.mitre.org/groups/G0060) has attempted to get users to launch malicious Microsoft Word attachments delivered via spearphishing emails.(Citation: Symantec Tick Apr 2016)(Citation: Trend Micro Tick November 2019)|
+|mitre-attack|enterprise-attack|Linux,Windows,macOS|T1203|Exploitation for Client Execution|[BRONZE BUTLER](https://attack.mitre.org/groups/G0060) has exploited Microsoft Office vulnerabilities CVE-2014-4114, CVE-2018-0802, and CVE-2018-0798 for execution.(Citation: Symantec Tick Apr 2016)(Citation: Trend Micro Tick November 2019)|
+|mitre-attack|enterprise-attack|Linux,macOS,Windows|T1102.001|Dead Drop Resolver|[BRONZE BUTLER](https://attack.mitre.org/groups/G0060)'s MSGET downloader uses a dead drop resolver to access malicious payloads.(Citation: Secureworks BRONZE BUTLER Oct 2017)|
+|mitre-attack|enterprise-attack|Linux,macOS,Windows|T1560.001|Archive via Utility|[BRONZE BUTLER](https://attack.mitre.org/groups/G0060) has compressed data into password-protected RAR archives prior to exfiltration.(Citation: Secureworks BRONZE BUTLER Oct 2017)(Citation: Trend Micro Tick November 2019)|
+|mitre-attack|enterprise-attack|Windows,Network|T1124|System Time Discovery|[BRONZE BUTLER](https://attack.mitre.org/groups/G0060) has used <code>net time</code> to check the local time on a target system.(Citation: Secureworks BRONZE BUTLER Oct 2017)|
+|mitre-attack|enterprise-attack|Linux,macOS,Windows|T1132.001|Standard Encoding|Several [BRONZE BUTLER](https://attack.mitre.org/groups/G0060) tools encode data with base64 when posting it to a C2 server.(Citation: Secureworks BRONZE BUTLER Oct 2017)|
+|mitre-attack|enterprise-attack|Linux,macOS,Windows|T1087.002|Domain Account|[BRONZE BUTLER](https://attack.mitre.org/groups/G0060) has used <code>net user /domain</code> to identify account information.(Citation: Secureworks BRONZE BUTLER Oct 2017)|
+|mitre-attack|enterprise-attack|Linux,Windows,macOS|T1573.001|Symmetric Cryptography|[BRONZE BUTLER](https://attack.mitre.org/groups/G0060) has used RC4 encryption (for Datper malware) and AES (for xxmm malware) to obfuscate HTTP traffic. [BRONZE BUTLER](https://attack.mitre.org/groups/G0060) has also used a tool called RarStar that encodes data with a custom XOR algorithm when posting it to a C2 server.(Citation: Secureworks BRONZE BUTLER Oct 2017)|
+|mitre-attack|enterprise-attack|Linux,macOS,Windows|T1071.001|Web Protocols|[BRONZE BUTLER](https://attack.mitre.org/groups/G0060) malware has used HTTP for C2.(Citation: Secureworks BRONZE BUTLER Oct 2017)|
+|mitre-attack|enterprise-attack|Windows,Linux,macOS|T1053.002|At|[BRONZE BUTLER](https://attack.mitre.org/groups/G0060) has used [at](https://attack.mitre.org/software/S0110) to register a scheduled task to execute malware during lateral movement.(Citation: Secureworks BRONZE BUTLER Oct 2017)|
+|mitre-attack|enterprise-attack|Linux,macOS,Windows,Containers|T1036.005|Match Legitimate Name or Location|[BRONZE BUTLER](https://attack.mitre.org/groups/G0060) has given malware the same name as an existing file on the file share server to cause users to unwittingly launch and install the malware on additional systems.(Citation: Secureworks BRONZE BUTLER Oct 2017)|
+|mitre-attack|enterprise-attack|Windows|T1548.002|Bypass User Account Control|[BRONZE BUTLER](https://attack.mitre.org/groups/G0060) has used a Windows 10 specific tool and xxmm to bypass UAC for privilege escalation.(Citation: Secureworks BRONZE BUTLER Oct 2017)(Citation: Trend Micro Tick November 2019)|
+|mitre-attack|enterprise-attack|Linux,macOS,Windows,Network|T1018|Remote System Discovery|[BRONZE BUTLER](https://attack.mitre.org/groups/G0060) typically use <code>ping</code> and [Net](https://attack.mitre.org/software/S0039) to enumerate systems.(Citation: Secureworks BRONZE BUTLER Oct 2017)|
+|mitre-attack|enterprise-attack|Windows|T1550.003|Pass the Ticket|[BRONZE BUTLER](https://attack.mitre.org/groups/G0060) has created forged Kerberos Ticket Granting Ticket (TGT) and Ticket Granting Service (TGS) tickets to maintain administrative access.(Citation: Secureworks BRONZE BUTLER Oct 2017)|
+|mitre-attack|enterprise-attack|Windows|T1059.003|Windows Command Shell|[BRONZE BUTLER](https://attack.mitre.org/groups/G0060) has used batch scripts and the command-line interface for execution.(Citation: Secureworks BRONZE BUTLER Oct 2017)|
+|mitre-attack|enterprise-attack|Linux,macOS,Windows|T1070.004|File Deletion|The [BRONZE BUTLER](https://attack.mitre.org/groups/G0060) uploader or malware the uploader uses <code>command</code> to delete the RAR archives after they have been exfiltrated.(Citation: Secureworks BRONZE BUTLER Oct 2017)|
+|mitre-attack|enterprise-attack|Linux,macOS,Windows,Network|T1083|File and Directory Discovery|[BRONZE BUTLER](https://attack.mitre.org/groups/G0060) has collected a list of files from the victim and uploaded it to its C2 server, and then created a new list of specific files to steal.(Citation: Secureworks BRONZE BUTLER Oct 2017)|
+|mitre-attack|enterprise-attack|Linux,macOS,Windows|T1039|Data from Network Shared Drive|[BRONZE BUTLER](https://attack.mitre.org/groups/G0060) has exfiltrated files stolen from file shares.(Citation: Secureworks BRONZE BUTLER Oct 2017)|
+|mitre-attack|enterprise-attack|Linux,macOS,Windows|T1027.001|Binary Padding|[BRONZE BUTLER](https://attack.mitre.org/groups/G0060) downloader code has included "0" characters at the end of the file to inflate the file size in a likely attempt to evade anti-virus detection.(Citation: Secureworks BRONZE BUTLER Oct 2017)(Citation: Trend Micro Tick November 2019)|
+|mitre-attack|enterprise-attack|Windows,Linux,macOS|T1140|Deobfuscate/Decode Files or Information|[BRONZE BUTLER](https://attack.mitre.org/groups/G0060) downloads encoded payloads and decodes them on the victim.(Citation: Secureworks BRONZE BUTLER Oct 2017)|
+|mitre-attack|enterprise-attack|Windows|T1059.001|PowerShell|[BRONZE BUTLER](https://attack.mitre.org/groups/G0060) has used PowerShell for execution.(Citation: Secureworks BRONZE BUTLER Oct 2017)|
+|mitre-attack|enterprise-attack|Linux,macOS,Windows,Network|T1005|Data from Local System|[BRONZE BUTLER](https://attack.mitre.org/groups/G0060) has exfiltrated files stolen from local systems.(Citation: Secureworks BRONZE BUTLER Oct 2017)|
+|mitre-attack|enterprise-attack|Linux,macOS,Windows|T1105|Ingress Tool Transfer|[BRONZE BUTLER](https://attack.mitre.org/groups/G0060) has used various tools to download files, including DGet (a similar tool to wget).(Citation: Secureworks BRONZE BUTLER Oct 2017)|
+|mitre-attack|enterprise-attack|Windows|T1003.001|LSASS Memory|[BRONZE BUTLER](https://attack.mitre.org/groups/G0060) has used various tools (such as Mimikatz and WCE) to perform credential dumping.(Citation: Secureworks BRONZE BUTLER Oct 2017)|
+|mitre-attack|enterprise-attack|Windows|T1547.001|Registry Run Keys / Startup Folder|[BRONZE BUTLER](https://attack.mitre.org/groups/G0060) has used a batch script that adds a Registry Run key to establish malware persistence.(Citation: Secureworks BRONZE BUTLER Oct 2017)|
+|mitre-attack|enterprise-attack|Linux,macOS,Windows|T1113|Screen Capture|[BRONZE BUTLER](https://attack.mitre.org/groups/G0060) has used a tool to capture screenshots.(Citation: Secureworks BRONZE BUTLER Oct 2017)(Citation: Trend Micro Tick November 2019)|
