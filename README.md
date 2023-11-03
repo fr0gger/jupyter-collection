@@ -4,6 +4,10 @@
 This repository is a collection of some of my Jupyter Notebook applied to cybersecurity and threat intelligence. If you want to play with the code you can run it [here](https://mybinder.org/v2/gh/fr0gger/jupyter-collection.git/HEAD)
 <br /><br />
 
+### [Retrieved Augmented Generation (RAG) and ATT&CK](https://fr0gger.github.io/jupyter-collection/RAG_ATT%26CK/RAG_ATT%26CK.html)
+This notebook shows how to create a RAG with LLM with the ATT&CK group to create your own Mitre assistant powered with LLM.
+<br /> *Published: 03 November 2023* <br />
+
 ### [Threat Report Summarization Using LLMs and Few-Shot Learning](https://fr0gger.github.io/jupyter-collection/Threat_Report_Summarization/Threat_Summarization_Few_shot_learning.html)
 This notebook is an experiment designed to demonstrate the application of few-shot learning for summarizing threat reports and generating a mind map of the key findings.
 <br /> *Published: 27 September 2023* <br />
