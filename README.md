@@ -5,7 +5,7 @@ This repository is a collection of some of my Jupyter Notebook applied to cybers
 <br /><br />
 
 ### [Retrieved Augmented Generation (RAG) and ATT&CK](https://fr0gger.github.io/jupyter-collection/RAG_ATT%26CK/RAG_ATT%26CK.html)
-This notebook shows how to create a RAG with LLM with the ATT&CK group to create your own Mitre assistant powered with LLM.
+This notebook demonstrates how to construct a Retrieval-Augmented Generation (RAG) model using a Large Language Model (LLM), integrated with the ATT&CK framework, to create your own MITRE assistant powered by LLM.
 <br /> *Published: 03 November 2023* <br />
 
 ### [Threat Report Summarization Using LLMs and Few-Shot Learning](https://fr0gger.github.io/jupyter-collection/Threat_Report_Summarization/Threat_Summarization_Few_shot_learning.html)
@@ -17,7 +17,7 @@ This notebook demonstrates how to use MSTICpy to query Pulsedive.
 <br /> *Published: 10 March 2023* <br />
 
 ### [ELK Threat Hunting](https://fr0gger.github.io/jupyter-collection/ELK_Threat_Hunting/ELK_Threat_Hunting.html)
-This notebook show how to connect to an ElasticSearch instance to retrieve the data and analyse them. The dataset used here is from MalwareBazaar.
+This notebook demonstrates how to connect to an ElasticSearch instance to retrieve the data and analyse them. The dataset used here is from MalwareBazaar.
 <br /> *Published: 10 September 2022* <br />
 
 ### [Malware Bazaar Lookup Using MSTICpy](https://fr0gger.github.io/jupyter-collection/mblookup/MBLookup.html)
