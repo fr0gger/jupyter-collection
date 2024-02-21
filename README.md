@@ -4,6 +4,10 @@
 This repository is a collection of some of my Jupyter Notebook applied to cybersecurity and threat intelligence. If you want to play with the code you can run it [here](https://mybinder.org/v2/gh/fr0gger/jupyter-collection.git/HEAD)
 <br /><br />
 
+### [I-SOON Data Leak Analysis using OCR and Generative AI](https://fr0gger.github.io/jupyter-collection/ISOON_DataLeak_OCR_GenAI/ISOON_ChinLeaks.html)
+This notebook demonstrates how to analyze a data leak in Chinese from PNG files leveraging python, OCR, Translation and Generative AI.
+<br /> *Published: 21 February 2024* <br />
+
 ### [Retrieved Augmented Generation (RAG) and ATT&CK](https://fr0gger.github.io/jupyter-collection/RAG_ATT%26CK/RAG_ATT%26CK.html)
 This notebook demonstrates how to construct a Retrieval-Augmented Generation (RAG) model using a Large Language Model (LLM), integrated with the ATT&CK framework, to create your own MITRE assistant powered by LLM.
 <br /> *Published: 03 November 2023* <br />
