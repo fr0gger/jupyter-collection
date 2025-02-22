@@ -4,6 +4,10 @@
 This repository is a collection of some of my Jupyter Notebook applied to cybersecurity and threat intelligence. If you want to play with the code you can run it [here](https://mybinder.org/v2/gh/fr0gger/jupyter-collection.git/HEAD)
 <br /><br />
 
+### [BlackBasta Leak Analysis and Hybrid RAG](https://fr0gger.github.io/jupyter-collection/bb_leak_tr/bb_leak_analysis.html)
+This is a Marimo notebook that demonstrates how to analyze the BlackBasta data leak. It also uses a hybrid search RAG to retrieve the most relevant information from the leak.
+<br /> *Published: 22 February 2025* <br />
+
 ### [I-SOON Data Leak Analysis using OCR and Generative AI](https://fr0gger.github.io/jupyter-collection/ISOON_DataLeak_OCR_GenAI/ISOON_ChinLeaks.html)
 This notebook demonstrates how to analyze a data leak in Chinese from PNG files leveraging python, OCR, Translation and Generative AI.
 <br /> *Published: 21 February 2024* <br />
