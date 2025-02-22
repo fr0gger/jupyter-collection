@@ -1,9 +1,3 @@
----
-title: App
-marimo-version: 0.11.7
-width: medium
----
-
 # BlackBasta Chat Logs Leak Analysis
 #### Author: Thomas Roccia - @fr0gger_
 
