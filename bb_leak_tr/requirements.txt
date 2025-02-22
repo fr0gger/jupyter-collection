@@ -1,0 +1,14 @@
+marimo
+pandas
+numpy
+altair
+ipaddress
+langchain
+langchain_openai
+langchain_core
+langchain_community
+faiss-cpu
+deepeval
+openai
+rank_bm25
+jq
