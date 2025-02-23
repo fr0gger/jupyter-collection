@@ -6,7 +6,7 @@ In this notebook, we will break down the leaked chat logs from the Black Basta r
 
 We will start by exploring the dataset to get an overview of its structure—identifying users, message distribution, and general activity patterns. Then, we will use generative AI with a RAG model to interact dynamically with the data, to allow direct analysis of the logs, and retrieve discussions, tools, and tactics used by the group.
 
-My goal is to show you how to analyze this kind of data with practical code that you can understand, adapt, and reapply. In this specific notebook, I didn’t use Jupyter; I used Marimo, and I recommend checking out the [Marimo documentation](https://marimo.io/docs](https://docs.marimo.io/) to understand how to run this notebook locally.
+My goal is to show you how to analyze this kind of data with practical code that you can understand, adapt, and reapply. In this specific notebook, I didn’t use Jupyter; I used Marimo, and I recommend checking out the [Marimo documentation](https://docs.marimo.io/) to understand how to run this notebook locally.
 
 
 
