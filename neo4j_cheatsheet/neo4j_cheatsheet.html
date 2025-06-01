@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neo4j Cypher Query Cheatsheet</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #f5f5f5;
+      padding: 20px;
+      line-height: 1.6;
+      color: #333;
+    }
+    
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+    
+    .header {
+      background: linear-gradient(135deg, #059669, #2563eb);
+      color: white;
+      padding: 40px 30px;
+      text-align: center;
+    }
+    
+    .header h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    .header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      margin-bottom: 20px;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    
+    .social-links a {
+      color: white;
+      text-decoration: none;
+      padding: 8px;
+      border-radius: 6px;
+      transition: background-color 0.2s;
+    }
+    
+    .social-links a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+    
+    .content {
+      padding: 30px;
+    }
+    
+    .intro {
+      background: #f0fdf4;
+      border-left: 4px solid #059669;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 0 8px 8px 0;
+    }
+    
+    .intro p {
+      color: #065f46;
+      font-weight: 500;
+    }
+    
+    .section {
+      margin-bottom: 40px;
+    }
+    
+    .section-title {
+      display: flex;
+      align-items: center;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #e5e7eb;
+      margin-bottom: 20px;
+    }
+    
+    .section-title h2 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #1f2937;
+      margin-left: 10px;
+    }
+    
+    .icon {
+      width: 24px;
+      height: 24px;
+      background: #dbeafe;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+    
+    .command-box {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      overflow: hidden;
+      transition: box-shadow 0.2s;
+    }
+    
+    .command-box:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .command-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 20px;
+    }
+    
+    .command-content {
+      flex: 1;
+      min-width: 0;
+    }
+    
+    .command-code {
+      background: #1f2937;
+      color: #06b6d4;
+      padding: 15px;
+      border-radius: 6px;
+      font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+      font-size: 13px;
+      line-height: 1.4;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-break: break-all;
+      margin-bottom: 10px;
+    }
+    
+    .command-description {
+      color: #6b7280;
+      font-size: 14px;
+    }
+    
+    .copy-btn {
+      background: white;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      padding: 10px;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-left: 15px;
+      flex-shrink: 0;
+    }
+    
+    .copy-btn:hover {
+      background: #f3f4f6;
+      transform: scale(1.05);
+    }
+    
+    .copy-btn.copied {
+      background: #059669;
+      color: white;
+      border-color: #047857;
+    }
+    
+    .danger-zone {
+      background: #fef2f2;
+      border-left: 4px solid #dc2626;
+      padding: 20px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 20px;
+    }
+    
+    .danger-title {
+      color: #dc2626;
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+    
+    .danger-text {
+      color: #991b1b;
+      font-weight: 500;
+      margin-bottom: 15px;
+    }
+    
+    .config-box {
+      position: relative;
+      margin-bottom: 20px;
+    }
+    
+    .config-code {
+      background: #1f2937;
+      color: #10b981;
+      padding: 20px;
+      border-radius: 8px;
+      font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+      font-size: 13px;
+      line-height: 1.5;
+      overflow-x: auto;
+      white-space: pre;
+    }
+    
+    .config-copy {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #374151;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 6px 10px;
+      cursor: pointer;
+      font-size: 12px;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    
+    .config-box:hover .config-copy {
+      opacity: 1;
+    }
+    
+    .config-copy:hover {
+      background: #4b5563;
+    }
+    
+    .tip-box {
+      background: #fffbeb;
+      border-left: 4px solid #f59e0b;
+      padding: 15px;
+      border-radius: 0 8px 8px 0;
+      margin-top: 15px;
+    }
+    
+    .tip-box p {
+      color: #92400e;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    
+    .tip-box ul {
+      color: #92400e;
+      margin-left: 20px;
+    }
+    
+    .tip-box code {
+      background: #fef3c7;
+      padding: 2px 6px;
+      border-radius: 3px;
+      color: #78350f;
+    }
+    
+    .footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #e5e7eb;
+      text-align: center;
+      color: #6b7280;
+    }
+    
+    .footer p {
+      margin-bottom: 5px;
+    }
+    
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 15px;
+    }
+    
+    .footer-social a {
+      color: #6b7280;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    
+    .footer-social a:hover {
+      color: #2563eb;
+    }
+    
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+      
+      .header h1 {
+        font-size: 2rem;
+      }
+      
+      .content {
+        padding: 20px;
+      }
+      
+      .command-header {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .copy-btn {
+        margin-left: 0;
+        align-self: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <h1>Neo4j Cypher Query Cheatsheet</h1>
+      <p>Created by Thomas Roccia</p>
+      
+      <div class="social-links">
+        <a href="https://x.com/fr0gger_" target="_blank" aria-label="Twitter">🐦</a>
+        <a href="https://www.linkedin.com/in/thomas-roccia/" target="_blank" aria-label="LinkedIn">💼</a>
+        <a href="https://infosec.exchange/@fr0gger" target="_blank" aria-label="Mastodon">🐘</a>
+        <a href="https://securitybreak.io/" target="_blank" aria-label="Website">🌐</a>
+      </div>
+    </div>
+    
+    <div class="content">
+      <!-- Introduction -->
+      <div class="intro">
+        <p>🗃️ Neo4j is a highly scalable native graph database. Cypher is its declarative query language for expressing graph patterns and operations.</p>
+      </div>
+
+      <!-- Basic Graph Exploration -->
+      <div class="section">
+        <div class="section-title">
+          <div class="icon">🔍</div>
+          <h2>Basic Graph Exploration</h2>
+        </div>
+        
+        <div class="command-box">
+          <div class="command-header">
+            <div class="command-content">
+              <div class="command-code">MATCH (n)-[r]->(m) RETURN n, r, m LIMIT 100</div>
+              <div class="command-description">Show all nodes, relationships, and connections (limited to 100)</div>
+            </div>
+            <button class="copy-btn" onclick="copyCommand(this, 'MATCH (n)-[r]->(m) RETURN n, r, m LIMIT 100')">📋</button>
+          </div>
+        </div>
+
+        <div class="command-box">
+          <div class="command-header">
+            <div class="command-content">
+              <div class="command-code">MATCH (n) RETURN n LIMIT 25</div>
+              <div class="command-description">Show all nodes in the database (limited to 25)</div>
+            </div>
+            <button class="copy-btn" onclick="copyCommand(this, 'MATCH (n) RETURN n LIMIT 25')">📋</button>
+          </div>
+        </div>
+
+        <div class="command-box">
+          <div class="command-header">
+            <div class="command-content">
+              <div class="command-code">MATCH ()-[r]->() RETURN r LIMIT 50</div>
+              <div class="command-description">Show all relationships (limited to 50)</div>
+            </div>
+            <button class="copy-btn" onclick="copyCommand(this, 'MATCH ()-[r]->() RETURN r LIMIT 50')">📋</button>
+          </div>
+        </div>
+
+        <div class="command-box">
+          <div class="command-header">
+            <div class="command-content">
+              <div class="command-code">MATCH (n) RETURN DISTINCT labels(n) as node_labels</div>
+              <div class="command-description">Get all unique node labels in the database</div>
+            </div>
+            <button class="copy-btn" onclick="copyCommand(this, 'MATCH (n) RETURN DISTINCT labels(n) as node_labels')">📋</button>
+          </div>
+        </div>
+
+        <div class="command-box">
+          <div class="command-header">
+            <div class="command-content">
+              <div class="command-code">MATCH ()-[r]->() RETURN DISTINCT type(r) as relationship_types</div>
+              <div class="command-description">Get all unique relationship types</div>
+            </div>
+            <button class="copy-btn" onclick="copyCommand(this, 'MATCH ()-[r]->() RETURN DISTINCT type(r) as relationship_types')">📋</button>
+          </div>
+        </div>
+
+        <div class="command-box">
+          <div class="command-header">
+            <div class="command-content">
+              <div class="command-code">MATCH (n) RETURN count(n) as total_nodes</div>
+              <div class="command-description">Count total number of nodes</div>
+            </div>
+            <button class="copy-btn" onclick="copyCommand(this, 'MATCH (n) RETURN count(n) as total_nodes')">📋</button>
+          </div>
+        </div>
+
+        <div class="command-box">
+          <div class="command-header">
+            <div class="command-content">
+              <div class="command-code">MATCH ()-[r]->() RETURN count(r) as total_relationships</div>
+              <div class="command-description">Count total number of relationships</div>
+            </div>
+            <button class="copy-btn" onclick="copyCommand(this, 'MATCH ()-[r]->() RETURN count(r) as total_relationships')">📋</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Basic Node Operations -->
+      <div class="section">
+        <div class="section-title">
+          <div class="icon">➕</div>
+          <h2>Basic Node Operations</h2>
+        </div>
+        
+        <div class="command-box">
+          <div class="command-header">
+            <div class="command-content">
+              <div class="command-code">CREATE (n:Person {name: 'John', age: 30})</div>
+              <div class="command-description">Create a node with label 'Person' and properties</div>
+            </div>
+            <button class="copy-btn" onclick="copyCommand(this, 'CREATE (n:Person {name: \'John\', age: 30})')">📋</button>
+          </div>
+        </div>
+
+        <div class="command-box">
+          <div class="command-header">
+            <div class="command-content">
+              <div class="command-code">MATCH (n:Person) WHERE n.name = 'John' RETURN n</div>
+              <div class="command-description">Find nodes by property value</div>
+            </div>
+            <button class="copy-btn" onclick="copyCommand(this, 'MATCH (n:Person) WHERE n.name = \'John\' RETURN n')">📋</button>
+          </div>
+        </div>
+
+        <div class="command-box">
+          <div class="command-header">
+            <div class="command-content">
+              <div class="command-code">MATCH (n:Person {name: 'John'}) SET n.age = 31 RETURN n</div>
+              <div class="command-description">Update node properties</div>
+            </div>
+            <button class="copy-btn" onclick="copyCommand(this, 'MATCH (n:Person {name: \'John\'}) SET n.age = 31 RETURN n')">📋</button>
+          </div>
+        </div>
+
+        <div class="command-box">
+          <div class="command-header">
+            <div class="command-content">
+              <div class="command-code">MATCH (n:Person {name: 'John'}) DELETE n</div>
+              <div class="command-description">Delete a node (only if no relationships exist)</div>
+            </div>
+            <button class="copy-btn" onclick="copyCommand(this, 'MATCH (n:Person {name: \'John\'}) DELETE n')">📋</button>
+          </div>
+        </div>
+
+        <div class="command-box">
+          <div class="command-header">
+            <div class="command-content">
+              <div class="command-code">MATCH (n:Person {name: 'John'}) DETACH DELETE n</div>
+              <div class="command-description">Delete a node and all its relationships</div>
+            </div>
+            <button class="copy-btn" onclick="copyCommand(this, 'MATCH (n:Person {name: \'John\'}) DETACH DELETE n')">📋</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Relationship Operations -->
+      <div class="section">
+        <div class="section-title">
+          <div class="icon">🔗</div>
+          <h2>Relationship Operations</h2>
+        </div>
+        
+        <div class="command-box">
+          <div class="command-header">
+            <div class="command-content">
+              <div class="command-code">CREATE (a:Person {name: 'Alice'})-[r:WORKS_AT {since: 2020}]->(b:Company {name: 'TechCorp'})</div>
+              <div class="command-description">Create nodes and relationship in one query</div>
+            </div>
+            <button class="copy-btn" onclick="copyCommand(this, 'CREATE (a:Person {name: \'Alice\'})-[r:WORKS_AT {since: 2020}]->(b:Company {name: \'TechCorp\'})')">📋</button>
+          </div>
+        </div>
+
+        <div class="command-box">
+          <div class="command-header">
+            <div class="command-content">
+              <div class="command-code">MATCH (a)-[r:KNOWS]->(b) WHERE a.name = 'John' RETURN a, r, b</div>
+              <div class="command-description">Find relationships and connected nodes</div>
+            </div>
+            <button class="copy-btn" onclick="copyCommand(this, 'MATCH (a)-[r:KNOWS]->(b) WHERE a.name = \'John\' RETURN a, r, b')">📋</button>
+          </div>
+        </div>
+
+        <div class="command-box">
+          <div class="command-header">
+            <div class="command-content">
+              <div class="command-code">MATCH (a)-[r:KNOWS]->(b) WHERE a.name = 'John' DELETE r</div>
+              <div class="command-description">Delete a specific relationship</div>
+            </div>
+            <button class="copy-btn" onclick="copyCommand(this, 'MATCH (a)-[r:KNOWS]->(b) WHERE a.name = \'John\' DELETE r')">📋</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Advanced Queries -->
+      <div class="section">
+        <div class="section-title">
+          <div class="icon">🎯</div>
+          <h2>Advanced Queries</h2>
+        </div>
+        
+        <div class="command-box">
+          <div class="command-header">
+            <div class="command-content">
+              <div class="command-code">MATCH path = shortestPath((a:Person {name: 'John'})-[*]-(b:Person {name: 'Jane'})) RETURN path</div>
+              <div class="command-description">Find shortest path between two nodes</div>
+            </div>
+            <button class="copy-btn" onclick="copyCommand(this, 'MATCH path = shortestPath((a:Person {name: \'John\'})-[*]-(b:Person {name: \'Jane\'})) RETURN path')">📋</button>
+          </div>
+        </div>
+
+        <div class="command-box">
+          <div class="command-header">
+            <div class="command-content">
+              <div class="command-code">MATCH (p:Person) WITH p, [(p)-[:KNOWS]->(friend) | friend.name] as friends RETURN p.name, friends</div>
+              <div class="command-description">Collect friends as a list for each person</div>
+            </div>
+            <button class="copy-btn" onclick="copyCommand(this, 'MATCH (p:Person) WITH p, [(p)-[:KNOWS]->(friend) | friend.name] as friends RETURN p.name, friends')">📋</button>
+          </div>
+        </div>
+
+        <div class="command-box">
+          <div class="command-header">
+            <div class="command-content">
+              <div class="command-code">MATCH (p:Person) OPTIONAL MATCH (p)-[:WORKS_AT]->(c:Company) RETURN p.name, c.name</div>
+              <div class="command-description">LEFT JOIN equivalent - return people with or without companies</div>
+            </div>
+            <button class="copy-btn" onclick="copyCommand(this, 'MATCH (p:Person) OPTIONAL MATCH (p)-[:WORKS_AT]->(c:Company) RETURN p.name, c.name')">📋</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Delete All Data (Danger Zone) -->
+      <div class="section">
+        <div class="section-title">
+          <div class="icon">🗑️</div>
+          <h2>Delete All Data</h2>
+        </div>
+        
+        <div class="danger-zone">
+          <div class="danger-title">⚠️ DANGER ZONE</div>
+          <div class="danger-text">The following queries will permanently delete data. Use with extreme caution!</div>
+          
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">MATCH (n)
+DETACH DELETE n</div>
+                <div class="command-description">🔥 Delete ALL nodes and relationships in the database (PERMANENT!)</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'MATCH (n)\nDETACH DELETE n')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">MATCH (n) DETACH DELETE n</div>
+                <div class="command-description">🔥 Alternative single-line version - deletes everything (PERMANENT!)</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'MATCH (n) DETACH DELETE n')">📋</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Configuration Settings -->
+      <div class="section">
+        <div class="section-title">
+          <div class="icon">⚙️</div>
+          <h2>Configuration Settings</h2>
+        </div>
+        
+        <p style="margin-bottom: 15px;">Key Neo4j configuration settings (neo4j.conf file):</p>
+        
+        <div class="config-box">
+          <div class="config-code"># neo4j.conf - Key Configuration Settings
+
+# Memory Settings
+dbms.memory.heap.initial_size=1G
+dbms.memory.heap.max_size=1G
+dbms.memory.pagecache.size=1G
+
+# Network Settings
+dbms.default_listen_address=0.0.0.0
+dbms.default_advertised_address=localhost
+dbms.connector.bolt.listen_address=:7687
+dbms.connector.http.listen_address=:7474
+
+# Security Settings
+dbms.security.auth_enabled=true
+dbms.security.procedures.unrestricted=gds.*,apoc.*
+
+# Performance Settings
+dbms.query_cache_size=1000
+dbms.query.max_time=60s</div>
+          <button class="config-copy" onclick="copyConfig()">📋 Copy</button>
+        </div>
+        
+        <div class="tip-box">
+          <p><strong>Memory Tuning Tips:</strong></p>
+          <ul>
+            <li>Set heap size to 1/4 of available RAM</li>
+            <li>Page cache should be 1/2 of available RAM (minus heap)</li>
+            <li>Monitor with <code>:sysinfo</code> in Neo4j Browser</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="footer">
+        <p>Neo4j - The World's Leading Graph Database</p>
+        <p>Created by Thomas Roccia</p>
+        
+        <div class="footer-social">
+          <a href="https://x.com/fr0gger_" target="_blank">🐦 Twitter</a>
+          <a href="https://www.linkedin.com/in/thomas-roccia/" target="_blank">💼 LinkedIn</a>
+          <a href="https://infosec.exchange/@fr0gger" target="_blank">🐘 Mastodon</a>
+          <a href="https://securitybreak.io/" target="_blank">🌐 Website</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function copyCommand(button, text) {
+      // Try modern clipboard API first
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(function() {
+          showCopySuccess(button);
+        }).catch(function() {
+          fallbackCopy(text, button);
+        });
+      } else {
+        fallbackCopy(text, button);
+      }
+    }
+
+    function fallbackCopy(text, button) {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      
+      try {
+        document.execCommand('copy');
+        showCopySuccess(button);
+      } catch (err) {
+        console.error('Copy failed:', err);
+        button.textContent = '❌';
+        setTimeout(() => {
+          button.textContent = '📋';
+        }, 2000);
+      }
+      
+      document.body.removeChild(textarea);
+    }
+
+    function showCopySuccess(button) {
+      button.classList.add('copied');
+      button.textContent = '✅';
+      
+      setTimeout(() => {
+        button.classList.remove('copied');
+        button.textContent = '📋';
+      }, 2000);
+    }
+
+    function copyConfig() {
+      const configText = `# neo4j.conf - Key Configuration Settings
+
+# Memory Settings
+dbms.memory.heap.initial_size=1G
+dbms.memory.heap.max_size=1G
+dbms.memory.pagecache.size=1G
+
+# Network Settings
+dbms.default_listen_address=0.0.0.0
+dbms.default_advertised_address=localhost
+dbms.connector.bolt.listen_address=:7687
+dbms.connector.http.listen_address=:7474
+
+# Security Settings
+dbms.security.auth_enabled=true
+dbms.security.procedures.unrestricted=gds.*,apoc.*
+
+# Performance Settings
+dbms.query_cache_size=1000
+dbms.query.max_time=60s`;
+
+      const button = document.querySelector('.config-copy');
+      
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(configText).then(function() {
+          button.textContent = '✅ Copied';
+          setTimeout(() => {
+            button.textContent = '📋 Copy';
+          }, 2000);
+        }).catch(function() {
+          fallbackCopy(configText, button);
+        });
+      } else {
+        fallbackCopy(configText, button);
+      }
+    }
+  </script>
+</body>
+</html>
