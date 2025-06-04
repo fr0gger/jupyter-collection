@@ -1,0 +1,1009 @@
+{
+  "metadata": {
+    "source": "Microsoft Defender Threat Intelligence",
+    "date_updated": "2025-06-03",
+    "taxonomy_theme": "Weather",
+    "description": "Microsoft's threat actor naming taxonomy aligned with weather themes"
+  },
+  "categories": {
+    "nation_state": {
+      "description": "Cyber operators acting on behalf of or directed by a nation/state-aligned program",
+      "families": {
+        "Typhoon": "China",
+        "Sandstorm": "Iran", 
+        "Rain": "Lebanon",
+        "Sleet": "North Korea",
+        "Blizzard": "Russia",
+        "Hail": "South Korea",
+        "Dust": "Türkiye",
+        "Cyclone": "Vietnam",
+        "Gale": "Germany",
+        "Monsoon": "India",
+        "Whirlwind": "Pakistan",
+        "Lightning": "Palestinian Authority",
+        "Squall": "Singapore",
+        "Derecho": "Spain",
+        "Haze": "Syria",
+        "Frost": "Ukraine",
+        "Tornado": "United States"
+      }
+    },
+    "financially_motivated": {
+      "description": "Criminal organizations/persons with financial gain motivations",
+      "families": {
+        "Tempest": "Financially motivated actors"
+      }
+    },
+    "private_sector_offensive": {
+      "description": "Commercial actors that create and sell cyberweapons",
+      "families": {
+        "Tsunami": "Private sector offensive actors (PSOAs)"
+      }
+    },
+    "influence_operations": {
+      "description": "Information campaigns to shift perceptions and behaviors",
+      "families": {
+        "Flood": "Influence operations"
+      }
+    },
+    "groups_in_development": {
+      "description": "Temporary designation for unknown, emerging, or developing threat activity",
+      "families": {
+        "Storm": "Groups in development"
+      }
+    }
+  },
+  "threat_actors": [
+    {
+      "name": "Amethyst Rain",
+      "origin": "Lebanon",
+      "category": "Nation-state",
+      "family": "Rain",
+      "other_names": ["VolcanicTimber", "Volatile Cedar"]
+    },
+    {
+      "name": "Antique Typhoon",
+      "origin": "China",
+      "category": "Nation-state", 
+      "family": "Typhoon",
+      "other_names": ["Storm-0558"]
+    },
+    {
+      "name": "Aqua Blizzard",
+      "origin": "Russia",
+      "category": "Nation-state",
+      "family": "Blizzard", 
+      "other_names": ["ACTINIUM", "PRIMITIVE BEAR", "Gamaredon", "Armageddon", "UNC530", "shuckworm", "SectorC08"]
+    },
+    {
+      "name": "Berry Sandstorm",
+      "origin": "Iran",
+      "category": "Nation-state",
+      "family": "Sandstorm",
+      "other_names": ["Storm-0852"]
+    },
+    {
+      "name": "Blue Tsunami",
+      "origin": "Israel",
+      "category": "Private sector offensive actor",
+      "family": "Tsunami",
+      "other_names": []
+    },
+    {
+      "name": "Brass Typhoon",
+      "origin": "China",
+      "category": "Nation-state",
+      "family": "Typhoon",
+      "other_names": ["BARIUM", "WICKED PANDA", "APT41"]
+    },
+    {
+      "name": "Brocade Typhoon",
+      "origin": "China",
+      "category": "Nation-state",
+      "family": "Typhoon",
+      "other_names": ["BORON", "GOTHIC PANDA", "UPS", "APT3", "OLDCARP", "TG-0110", "Red Sylvan", "CYBRAN"]
+    },
+    {
+      "name": "Burgundy Sandstorm",
+      "origin": "Iran",
+      "category": "Nation-state",
+      "family": "Sandstorm",
+      "other_names": ["REMIX KITTEN", "Cadelle", "Chafer"]
+    },
+    {
+      "name": "Cadet Blizzard",
+      "origin": "Russia",
+      "category": "Nation-state",
+      "family": "Blizzard",
+      "other_names": ["DEV-0586", "EMBER BEAR"]
+    },
+    {
+      "name": "Canary Typhoon",
+      "origin": "China",
+      "category": "Nation-state",
+      "family": "Typhoon",
+      "other_names": ["CIRCUIT PANDA", "APT24", "Palmerworm", "BlackTech"]
+    },
+    {
+      "name": "Canvas Cyclone",
+      "origin": "Vietnam",
+      "category": "Nation-state",
+      "family": "Cyclone",
+      "other_names": ["BISMUTH", "OCEAN BUFFALO", "OceanLotus", "APT32"]
+    },
+    {
+      "name": "Caramel Tsunami",
+      "origin": "Israel",
+      "category": "Private sector offensive actor",
+      "family": "Tsunami",
+      "other_names": ["DEV-0236"]
+    },
+    {
+      "name": "Carmine Tsunami",
+      "origin": "Unknown",
+      "category": "Private sector offensive actor",
+      "family": "Tsunami",
+      "other_names": []
+    },
+    {
+      "name": "Charcoal Typhoon",
+      "origin": "China",
+      "category": "Nation-state",
+      "family": "Typhoon",
+      "other_names": ["CHROMIUM", "AQUATIC PANDA", "ControlX", "RedHotel", "BRONZE UNIVERSITY"]
+    },
+    {
+      "name": "Checkered Typhoon",
+      "origin": "China",
+      "category": "Nation-state",
+      "family": "Typhoon",
+      "other_names": ["CHLORINE", "DEEP PANDA", "ATG50", "APT19", "TG-3551", "Red Gargoyle"]
+    },
+    {
+      "name": "Cinnamon Tempest",
+      "origin": "China",
+      "category": "Financially motivated",
+      "family": "Tempest",
+      "other_names": ["DEV-0401", "HighGround"]
+    },
+    {
+      "name": "Circle Typhoon",
+      "origin": "China",
+      "category": "Nation-state",
+      "family": "Typhoon",
+      "other_names": ["DEV-0322", "EMISSARY PANDA", "APT6", "APT27"]
+    },
+    {
+      "name": "Citrine Sleet",
+      "origin": "North Korea",
+      "category": "Nation-state",
+      "family": "Sleet",
+      "other_names": ["Storm-0139", "Storm-1222", "LABYRINTH CHOLLIMA"]
+    },
+    {
+      "name": "Cotton Sandstorm",
+      "origin": "Iran",
+      "category": "Nation-state",
+      "family": "Sandstorm",
+      "other_names": ["NEPTUNIUM", "HAYWIRE KITTEN", "Vice Leaker"]
+    },
+    {
+      "name": "CovertNetwork-1658",
+      "origin": "Unknown",
+      "category": "Covert network",
+      "family": "Special",
+      "other_names": ["ORB07"]
+    },
+    {
+      "name": "Crescent Typhoon",
+      "origin": "China",
+      "category": "Nation-state",
+      "family": "Typhoon",
+      "other_names": ["CESIUM"]
+    },
+    {
+      "name": "Crimson Sandstorm",
+      "origin": "Iran",
+      "category": "Nation-state",
+      "family": "Sandstorm",
+      "other_names": ["CURIUM", "IMPERIAL KITTEN", "Tortoise Shell", "HOUSEBLEND", "TA456"]
+    },
+    {
+      "name": "Cuboid Sandstorm",
+      "origin": "Iran",
+      "category": "Nation-state",
+      "family": "Sandstorm",
+      "other_names": ["DEV-0228", "IMPERIAL KITTEN"]
+    },
+    {
+      "name": "Denim Tsunami",
+      "origin": "Austria",
+      "category": "Private sector offensive actor",
+      "family": "Tsunami",
+      "other_names": ["DEV-0291"]
+    },
+    {
+      "name": "Diamond Sleet",
+      "origin": "North Korea",
+      "category": "Nation-state",
+      "family": "Sleet",
+      "other_names": ["ZINC", "LABYRINTH CHOLLIMA", "Black Artemis", "Lazarus"]
+    },
+    {
+      "name": "Emerald Sleet",
+      "origin": "North Korea",
+      "category": "Nation-state",
+      "family": "Sleet",
+      "other_names": ["THALLIUM", "VELVET CHOLLIMA", "RGB-D5", "Black Banshee", "Kimsuky", "Greendinosa"]
+    },
+    {
+      "name": "Fallow Squall",
+      "origin": "Singapore",
+      "category": "Nation-state",
+      "family": "Squall",
+      "other_names": ["PLATINUM", "PARASITE", "RUBYVINE", "GINGERSNAP"]
+    },
+    {
+      "name": "Flax Typhoon",
+      "origin": "China",
+      "category": "Nation-state",
+      "family": "Typhoon",
+      "other_names": ["Storm-0919", "ETHEREAL PANDA"]
+    },
+    {
+      "name": "Forest Blizzard",
+      "origin": "Russia",
+      "category": "Nation-state",
+      "family": "Blizzard",
+      "other_names": ["STRONTIUM", "FANCY BEAR", "Sednit", "ATG2", "Sofacy", "Blue Athena", "Z-Lom Team", "Operation Pawn Storm", "Tsar Team", "CrisisFour", "HELLFIRE", "APT28"]
+    },
+    {
+      "name": "Ghost Blizzard",
+      "origin": "Russia",
+      "category": "Nation-state",
+      "family": "Blizzard",
+      "other_names": ["BROMINE", "BERSERK BEAR", "TG-4192", "Koala Team", "Blue Kraken", "Crouching Yeti", "Dragonfly"]
+    },
+    {
+      "name": "Gingham Typhoon",
+      "origin": "China",
+      "category": "Nation-state",
+      "family": "Typhoon",
+      "other_names": ["GADOLINIUM", "KRYPTONITE PANDA", "TEMP.Periscope", "Leviathan", "JJDoor", "APT40", "Feverdream"]
+    },
+    {
+      "name": "Granite Typhoon",
+      "origin": "China",
+      "category": "Nation-state",
+      "family": "Typhoon",
+      "other_names": ["GALLIUM", "PHANTOM PANDA"]
+    },
+    {
+      "name": "Gray Sandstorm",
+      "origin": "Iran",
+      "category": "Nation-state",
+      "family": "Sandstorm",
+      "other_names": ["DEV-0343"]
+    },
+    {
+      "name": "Hazel Sandstorm",
+      "origin": "Iran",
+      "category": "Nation-state",
+      "family": "Sandstorm",
+      "other_names": ["EUROPIUM", "HELIX KITTEN", "COLBALT GYPSY", "Crambus", "OilRig", "APT34"]
+    },
+    {
+      "name": "Heart Typhoon",
+      "origin": "China",
+      "category": "Nation-state",
+      "family": "Typhoon",
+      "other_names": ["HELIUM", "AURORA PANDA", "APT17", "Hidden Lynx", "ATG3", "Red Typhon", "KAOS", "TG-8153", "SportsFans", "DeputyDog", "Tailgater"]
+    },
+    {
+      "name": "Hexagon Typhoon",
+      "origin": "China",
+      "category": "Nation-state",
+      "family": "Typhoon",
+      "other_names": ["HYDROGEN", "NUMBERED PANDA", "Calc Team", "Red Anubis", "APT12", "DNS-Calc", "HORDE"]
+    },
+    {
+      "name": "Houndstooth Typhoon",
+      "origin": "China",
+      "category": "Nation-state",
+      "family": "Typhoon",
+      "other_names": ["HASSIUM", "DRAGNET PANDA", "isoon", "deepclif"]
+    },
+    {
+      "name": "Jade Sleet",
+      "origin": "North Korea",
+      "category": "Nation-state",
+      "family": "Sleet",
+      "other_names": ["Storm-0954", "LABYRINTH CHOLLIMA"]
+    },
+    {
+      "name": "Lace Tempest",
+      "origin": "Unknown",
+      "category": "Financially motivated",
+      "family": "Tempest",
+      "other_names": ["DEV-0950"]
+    },
+    {
+      "name": "Lemon Sandstorm",
+      "origin": "Iran",
+      "category": "Nation-state",
+      "family": "Sandstorm",
+      "other_names": ["RUBIDIUM", "PIONEER KITTEN"]
+    },
+    {
+      "name": "Leopard Typhoon",
+      "origin": "China",
+      "category": "Nation-state",
+      "family": "Typhoon",
+      "other_names": ["LEAD", "WICKED PANDA", "TG-2633", "TG-3279", "Mana", "KAOS", "Red Diablo", "Winnti Group"]
+    },
+    {
+      "name": "Lilac Typhoon",
+      "origin": "China",
+      "category": "Nation-state",
+      "family": "Typhoon",
+      "other_names": ["DEV-0234"]
+    },
+    {
+      "name": "Linen Typhoon",
+      "origin": "China",
+      "category": "Nation-state",
+      "family": "Typhoon",
+      "other_names": ["IODINE", "EMISSARY PANDA", "Red Phoenix", "Hippo", "Lucky Mouse", "BOWSER", "APT27", "Wekby2", "UNC215", "TG-3390"]
+    },
+    {
+      "name": "Luna Tempest",
+      "origin": "Unknown",
+      "category": "Financially motivated",
+      "family": "Tempest",
+      "other_names": []
+    },
+    {
+      "name": "Magenta Dust",
+      "origin": "Türkiye",
+      "category": "Nation-state",
+      "family": "Dust",
+      "other_names": ["PROMETHIUM", "StrongPity", "SmallPity"]
+    },
+    {
+      "name": "Manatee Tempest",
+      "origin": "Russia",
+      "category": "Financially motivated",
+      "family": "Tempest",
+      "other_names": ["DEV-0243", "INDRIK SPIDER"]
+    },
+    {
+      "name": "Mango Sandstorm",
+      "origin": "Iran",
+      "category": "Nation-state",
+      "family": "Sandstorm",
+      "other_names": ["MERCURY", "STATIC KITTEN", "SeedWorm", "TEMP.Zagros", "MuddyWater"]
+    },
+    {
+      "name": "Marbled Dust",
+      "origin": "Türkiye",
+      "category": "Nation-state",
+      "family": "Dust",
+      "other_names": ["SILICON", "COSMIC WOLF", "Sea Turtle", "UNC1326"]
+    },
+    {
+      "name": "Marigold Sandstorm",
+      "origin": "Iran",
+      "category": "Nation-state",
+      "family": "Sandstorm",
+      "other_names": ["DEV-500", "VENGEFUL KITTEN"]
+    },
+    {
+      "name": "Midnight Blizzard",
+      "origin": "Russia",
+      "category": "Nation-state",
+      "family": "Blizzard",
+      "other_names": ["NOBELIUM", "COZY BEAR", "UNC2452", "APT29"]
+    },
+    {
+      "name": "Mint Sandstorm",
+      "origin": "Iran",
+      "category": "Nation-state",
+      "family": "Sandstorm",
+      "other_names": ["PHOSPHORUS", "CHARMING KITTEN", "Parastoo", "Newscaster", "APT35"]
+    },
+    {
+      "name": "Moonstone Sleet",
+      "origin": "North Korea",
+      "category": "Nation-state",
+      "family": "Sleet",
+      "other_names": ["Storm-1789", "LABYRINTH CHOLLIMA"]
+    },
+    {
+      "name": "Mulberry Typhoon",
+      "origin": "China",
+      "category": "Nation-state",
+      "family": "Typhoon",
+      "other_names": ["MANGANESE", "KEYHOLE PANDA", "Backdoor-DPD", "COVENANT", "CYSERVICE", "Bottle", "Red Horus", "Red Naga", "Auriga", "APT5", "ATG48", "TG-2754", "tabcteng"]
+    },
+    {
+      "name": "Mustard Tempest",
+      "origin": "Unknown",
+      "category": "Financially motivated",
+      "family": "Tempest",
+      "other_names": ["DEV-0206", "INDRIK SPIDER"]
+    },
+    {
+      "name": "Neva Flood",
+      "origin": "Russia",
+      "category": "Influence operations",
+      "family": "Flood",
+      "other_names": ["Storm-1516", "CopyCop"]
+    },
+    {
+      "name": "Night Tsunami",
+      "origin": "Israel",
+      "category": "Private sector offensive actor",
+      "family": "Tsunami",
+      "other_names": ["DEV-0336"]
+    },
+    {
+      "name": "Nylon Typhoon",
+      "origin": "China",
+      "category": "Nation-state",
+      "family": "Typhoon",
+      "other_names": ["NICKEL", "VIXEN PANDA", "Playful Dragon", "RedRiver", "ke3chang", "APT15", "Mirage"]
+    },
+    {
+      "name": "Octo Tempest",
+      "origin": "Unknown",
+      "category": "Financially motivated",
+      "family": "Tempest",
+      "other_names": ["SCATTERED SPIDER", "0ktapus"]
+    },
+    {
+      "name": "Onyx Sleet",
+      "origin": "North Korea",
+      "category": "Nation-state",
+      "family": "Sleet",
+      "other_names": ["PLUTONIUM", "SILENT CHOLLIMA", "StoneFly", "Tdrop2 campaign", "DarkSeoul", "Black Chollima", "Andariel", "APT45"]
+    },
+    {
+      "name": "Opal Sleet",
+      "origin": "North Korea",
+      "category": "Nation-state",
+      "family": "Sleet",
+      "other_names": ["OSMIUM", "VELVET CHOLLIMA", "Planedown", "Konni", "APT43"]
+    },
+    {
+      "name": "Peach Sandstorm",
+      "origin": "Iran",
+      "category": "Nation-state",
+      "family": "Sandstorm",
+      "other_names": ["HOLMIUM", "REFINED KITTEN", "APT33", "Elfin"]
+    },
+    {
+      "name": "Pearl Sleet",
+      "origin": "North Korea",
+      "category": "Nation-state",
+      "family": "Sleet",
+      "other_names": ["LAWRENCIUM"]
+    },
+    {
+      "name": "Periwinkle Tempest",
+      "origin": "Russia",
+      "category": "Financially motivated",
+      "family": "Tempest",
+      "other_names": ["DEV-0193", "WIZARD SPIDER"]
+    },
+    {
+      "name": "Phlox Tempest",
+      "origin": "Israel",
+      "category": "Financially motivated",
+      "family": "Tempest",
+      "other_names": ["DEV-0796"]
+    },
+    {
+      "name": "Pink Sandstorm",
+      "origin": "Iran",
+      "category": "Nation-state",
+      "family": "Sandstorm",
+      "other_names": ["AMERICIUM", "SPECTRAL KITTEN", "Agrius", "Deadwood", "BlackShadow", "SharpBoys", "FireAnt", "Justice Blade"]
+    },
+    {
+      "name": "Pinstripe Lightning",
+      "origin": "Palestinian Authority",
+      "category": "Nation-state",
+      "family": "Lightning",
+      "other_names": ["NIOBIUM", "RENEGADE JACKAL", "Desert Falcons", "Scimitar", "Arid Viper"]
+    },
+    {
+      "name": "Pistachio Tempest",
+      "origin": "Unknown",
+      "category": "Financially motivated",
+      "family": "Tempest",
+      "other_names": ["DEV-0237"]
+    },
+    {
+      "name": "Plaid Rain",
+      "origin": "Lebanon",
+      "category": "Nation-state",
+      "family": "Rain",
+      "other_names": ["POLONIUM", "INCENDIARY JACKAL"]
+    },
+    {
+      "name": "Pumpkin Sandstorm",
+      "origin": "Iran",
+      "category": "Nation-state",
+      "family": "Sandstorm",
+      "other_names": ["DEV-0146"]
+    },
+    {
+      "name": "Purple Typhoon",
+      "origin": "China",
+      "category": "Nation-state",
+      "family": "Typhoon",
+      "other_names": ["POTASSIUM", "STONE PANDA", "GOLEM", "Evilgrab", "AEON", "LIVESAFE", "ChChes", "APT10", "Haymaker", "Webmonder", "Foxtrot", "Foxmail", "MenuPass", "Red Apollo"]
+    },
+    {
+      "name": "Raspberry Typhoon",
+      "origin": "China",
+      "category": "Nation-state",
+      "family": "Typhoon",
+      "other_names": ["RADIUM", "LOTUS PANDA", "LotusBlossom", "APT30"]
+    },
+    {
+      "name": "Red Sandstorm",
+      "origin": "Iran",
+      "category": "Nation-state",
+      "family": "Sandstorm",
+      "other_names": ["Storm-0842", "BANISHED KITTEN", "Void Manticore"]
+    },
+    {
+      "name": "Ruby Sleet",
+      "origin": "North Korea",
+      "category": "Nation-state",
+      "family": "Sleet",
+      "other_names": ["CERIUM", "VELVET CHOLLIMA"]
+    },
+    {
+      "name": "Ruza Flood",
+      "origin": "Russia",
+      "category": "Influence operations",
+      "family": "Flood",
+      "other_names": []
+    },
+    {
+      "name": "Salmon Typhoon",
+      "origin": "China",
+      "category": "Nation-state",
+      "family": "Typhoon",
+      "other_names": ["SODIUM", "MAVERICK PANDA", "APT4"]
+    },
+    {
+      "name": "Salt Typhoon",
+      "origin": "China",
+      "category": "Nation-state",
+      "family": "Typhoon",
+      "other_names": ["OPERATOR PANDA", "GhostEmperor", "FamousSparrow"]
+    },
+    {
+      "name": "Sangria Tempest",
+      "origin": "Ukraine",
+      "category": "Financially motivated",
+      "family": "Tempest",
+      "other_names": ["ELBRUS", "CARBON SPIDER"]
+    },
+    {
+      "name": "Sapphire Sleet",
+      "origin": "North Korea",
+      "category": "Nation-state",
+      "family": "Sleet",
+      "other_names": ["COPERNICIUM", "STARDUST CHOLLIMA", "Genie Spider", "BlueNoroff", "CageyChameleon", "CryptoCore"]
+    },
+    {
+      "name": "Satin Typhoon",
+      "origin": "China",
+      "category": "Nation-state",
+      "family": "Typhoon",
+      "other_names": ["SCANDIUM", "DYNAMITE PANDA", "COMBINE", "TG-0416", "SILVERVIPER", "Red Wraith", "APT18", "Elderwood Group", "Wekby"]
+    },
+    {
+      "name": "Seashell Blizzard",
+      "origin": "Russia",
+      "category": "Nation-state",
+      "family": "Blizzard",
+      "other_names": ["IRIDIUM", "VOODOO BEAR", "BE2", "UAC-0113", "Blue Echidna", "Sandworm", "PHANTOM", "BlackEnergy Lite", "APT44"]
+    },
+    {
+      "name": "Secret Blizzard",
+      "origin": "Russia",
+      "category": "Nation-state",
+      "family": "Blizzard",
+      "other_names": ["KRYPTON", "VENOMOUS BEAR", "Uroburos", "Snake", "Blue Python", "Turla", "WRAITH", "ATG26"]
+    },
+    {
+      "name": "Sefid Flood",
+      "origin": "Iran",
+      "category": "Influence operations",
+      "family": "Flood",
+      "other_names": []
+    },
+    {
+      "name": "Shadow Typhoon",
+      "origin": "China",
+      "category": "Nation-state",
+      "family": "Typhoon",
+      "other_names": ["Storm-0062", "DarkShadow", "Oro0lxy"]
+    },
+    {
+      "name": "Silk Typhoon",
+      "origin": "China",
+      "category": "Nation-state",
+      "family": "Typhoon",
+      "other_names": ["HAFNIUM", "MURKY PANDA", "timmy"]
+    },
+    {
+      "name": "Smoke Sandstorm",
+      "origin": "Iran",
+      "category": "Nation-state",
+      "family": "Sandstorm",
+      "other_names": ["IMPERIAL KITTEN", "UNC1549"]
+    },
+    {
+      "name": "Spandex Tempest",
+      "origin": "Unknown",
+      "category": "Financially motivated",
+      "family": "Tempest",
+      "other_names": ["MONTY SPIDER", "TA505"]
+    },
+    {
+      "name": "Star Blizzard",
+      "origin": "Russia",
+      "category": "Nation-state",
+      "family": "Blizzard",
+      "other_names": ["SEABORGIUM", "COLDRIVER", "Callisto Group", "BlueCharlie", "TA446"]
+    },
+    {
+      "name": "Storm-0216",
+      "origin": "Unknown",
+      "category": "Financially motivated",
+      "family": "Storm",
+      "other_names": ["TUNNEL SPIDER", "UNC2198"]
+    },
+    {
+      "name": "Storm-0230",
+      "origin": "Unknown",
+      "category": "Groups in development",
+      "family": "Storm",
+      "other_names": ["WIZARD SPIDER", "Conti Team 1"]
+    },
+    {
+      "name": "Storm-0247",
+      "origin": "China",
+      "category": "Nation-state",
+      "family": "Storm",
+      "other_names": ["ToddyCat", "Websiic"]
+    },
+    {
+      "name": "Storm-0252",
+      "origin": "Unknown",
+      "category": "Groups in development",
+      "family": "Storm",
+      "other_names": ["CHATTY SPIDER"]
+    },
+    {
+      "name": "Storm-0288",
+      "origin": "Unknown",
+      "category": "Groups in development",
+      "family": "Storm",
+      "other_names": ["FIN8"]
+    },
+    {
+      "name": "Storm-0302",
+      "origin": "Unknown",
+      "category": "Groups in development",
+      "family": "Storm",
+      "other_names": ["NARWHAL SPIDER", "TA544"]
+    },
+    {
+      "name": "Storm-0408",
+      "origin": "Unknown",
+      "category": "Groups in development",
+      "family": "Storm",
+      "other_names": []
+    },
+    {
+      "name": "Storm-0485",
+      "origin": "Unknown",
+      "category": "Groups in development",
+      "family": "Storm",
+      "other_names": []
+    },
+    {
+      "name": "Storm-0501",
+      "origin": "Unknown",
+      "category": "Financially motivated",
+      "family": "Storm",
+      "other_names": []
+    },
+    {
+      "name": "Storm-0538",
+      "origin": "Unknown",
+      "category": "Groups in development",
+      "family": "Storm",
+      "other_names": ["SKELETON SPIDER", "FIN6"]
+    },
+    {
+      "name": "Storm-0539",
+      "origin": "Unknown",
+      "category": "Financially motivated",
+      "family": "Storm",
+      "other_names": []
+    },
+    {
+      "name": "Storm-0569",
+      "origin": "Unknown",
+      "category": "Financially motivated",
+      "family": "Storm",
+      "other_names": []
+    },
+    {
+      "name": "Storm-0671",
+      "origin": "Unknown",
+      "category": "Groups in development",
+      "family": "Storm",
+      "other_names": ["UNC2596", "Tropicalscorpius"]
+    },
+    {
+      "name": "Storm-0940",
+      "origin": "China",
+      "category": "Nation-state",
+      "family": "Storm",
+      "other_names": []
+    },
+    {
+      "name": "Storm-0978",
+      "origin": "Russia",
+      "category": "Nation-state",
+      "family": "Storm",
+      "other_names": ["RomCom", "Underground Team"]
+    },
+    {
+      "name": "Storm-1101",
+      "origin": "Unknown",
+      "category": "Groups in development",
+      "family": "Storm",
+      "other_names": []
+    },
+    {
+      "name": "Storm-1113",
+      "origin": "Unknown",
+      "category": "Financially motivated",
+      "family": "Storm",
+      "other_names": ["APOTHECARY SPIDER"]
+    },
+    {
+      "name": "Storm-1152",
+      "origin": "Unknown",
+      "category": "Financially motivated",
+      "family": "Storm",
+      "other_names": []
+    },
+    {
+      "name": "Storm-1175",
+      "origin": "China",
+      "category": "Financially motivated",
+      "family": "Storm",
+      "other_names": []
+    },
+    {
+      "name": "Storm-1194",
+      "origin": "Unknown",
+      "category": "Groups in development",
+      "family": "Storm",
+      "other_names": ["MONTI"]
+    },
+    {
+      "name": "Storm-1249",
+      "origin": "Unknown",
+      "category": "Groups in development",
+      "family": "Storm",
+      "other_names": []
+    },
+    {
+      "name": "Storm-1516",
+      "origin": "Russia",
+      "category": "Influence operations",
+      "family": "Storm",
+      "other_names": []
+    },
+    {
+      "name": "Storm-1567",
+      "origin": "Unknown",
+      "category": "Financially motivated",
+      "family": "Storm",
+      "other_names": ["PUNK SPIDER"]
+    },
+    {
+      "name": "Storm-1674",
+      "origin": "Unknown",
+      "category": "Financially motivated",
+      "family": "Storm",
+      "other_names": []
+    },
+    {
+      "name": "Storm-1679",
+      "origin": "Unknown",
+      "category": "Influence operations",
+      "family": "Storm",
+      "other_names": []
+    },
+    {
+      "name": "Storm-1811",
+      "origin": "Unknown",
+      "category": "Financially motivated",
+      "family": "Storm",
+      "other_names": ["CURLY SPIDER"]
+    },
+    {
+      "name": "Storm-1865",
+      "origin": "Unknown",
+      "category": "Groups in development",
+      "family": "Storm",
+      "other_names": []
+    },
+    {
+      "name": "Storm-1982",
+      "origin": "China",
+      "category": "Nation-state",
+      "family": "Storm",
+      "other_names": ["SneakyCheff", "UNK_SweetSpecter"]
+    },
+    {
+      "name": "Storm-2035",
+      "origin": "Iran",
+      "category": "Influence operations",
+      "family": "Storm",
+      "other_names": []
+    },
+    {
+      "name": "Storm-2077",
+      "origin": "China",
+      "category": "Nation-state",
+      "family": "Storm",
+      "other_names": ["TAG-100"]
+    },
+    {
+      "name": "Storm-2372",
+      "origin": "Unknown",
+      "category": "Groups in development",
+      "family": "Storm",
+      "other_names": []
+    },
+    {
+      "name": "Strawberry Tempest",
+      "origin": "Unknown",
+      "category": "Financially motivated",
+      "family": "Tempest",
+      "other_names": ["DEV-0537", "SLIPPY SPIDER", "LAPSUS$"]
+    },
+    {
+      "name": "Sunglow Blizzard",
+      "origin": "Unknown",
+      "category": "Nation-state",
+      "family": "Blizzard",
+      "other_names": ["DEV-0665"]
+    },
+    {
+      "name": "Swirl Typhoon",
+      "origin": "China",
+      "category": "Nation-state",
+      "family": "Typhoon",
+      "other_names": ["TELLURIUM", "STALKER PANDA", "Tick", "Bronze Butler", "REDBALDKNIGHT"]
+    },
+    {
+      "name": "Taffeta Typhoon",
+      "origin": "China",
+      "category": "Nation-state",
+      "family": "Typhoon",
+      "other_names": ["TECHNETIUM", "TURBINE PANDA", "TG-0055", "Red Kobold", "JerseyMikes", "APT26", "BEARCLAW"]
+    },
+    {
+      "name": "Taizi Flood",
+      "origin": "China",
+      "category": "Influence operations",
+      "family": "Flood",
+      "other_names": ["Dragonbridge", "Spamouflage"]
+    },
+    {
+      "name": "Tumbleweed Typhoon",
+      "origin": "China",
+      "category": "Nation-state",
+      "family": "Typhoon",
+      "other_names": ["THORIUM", "Karst"]
+    },
+    {
+      "name": "Twill Typhoon",
+      "origin": "China",
+      "category": "Nation-state",
+      "family": "Typhoon",
+      "other_names": ["TANTALUM", "MUSTANG PANDA", "BRONZE PRESIDENT", "LuminousMoth"]
+    },
+    {
+      "name": "Vanilla Tempest",
+      "origin": "Unknown",
+      "category": "Financially motivated",
+      "family": "Tempest",
+      "other_names": ["DEV-0832", "VICE SPIDER", "Vice Society"]
+    },
+    {
+      "name": "Velvet Tempest",
+      "origin": "Unknown",
+      "category": "Financially motivated",
+      "family": "Tempest",
+      "other_names": ["DEV-0504", "ALPHA SPIDER"]
+    },
+    {
+      "name": "Violet Typhoon",
+      "origin": "China",
+      "category": "Nation-state",
+      "family": "Typhoon",
+      "other_names": ["ZIRCONIUM", "JUDGMENT PANDA", "Chameleon", "APT31", "WebFans"]
+    },
+    {
+      "name": "Void Blizzard",
+      "origin": "Russia",
+      "category": "Nation-state",
+      "family": "Blizzard",
+      "other_names": ["Laundry Bear"]
+    },
+    {
+      "name": "Volga Flood",
+      "origin": "Russia",
+      "category": "Influence operations",
+      "family": "Flood",
+      "other_names": ["Storm-1841", "Rybar"]
+    },
+    {
+      "name": "Volt Typhoon",
+      "origin": "China",
+      "category": "Nation-state",
+      "family": "Typhoon",
+      "other_names": ["VANGUARD PANDA", "BRONZE SILHOUETTE"]
+    },
+    {
+      "name": "Wheat Tempest",
+      "origin": "Unknown",
+      "category": "Financially motivated",
+      "family": "Tempest",
+      "other_names": ["GOLD", "Gatak"]
+    },
+    {
+      "name": "Wisteria Tsunami",
+      "origin": "India",
+      "category": "Private sector offensive actor",
+      "family": "Tsunami",
+      "other_names": ["DEV-0605", "MintedSoil"]
+    },
+    {
+      "name": "Yulong Flood",
+      "origin": "China",
+      "category": "Influence operations",
+      "family": "Flood",
+      "other_names": ["Storm-1852"]
+    },
+    {
+      "name": "Zigzag Hail",
+      "origin": "South Korea",
+      "category": "Nation-state",
+      "family": "Hail",
+      "other_names": ["DUBNIUM", "SHADOW CRANE", "Nemim", "TEMPLAR", "TieOnJoe", "Fallout Team", "Purple Pygmy", "Dark Hotel", "Egobot", "Tapaoux", "PALADIN", "APT-C-60"]
+    }
+  ],
+  "resources": {
+    "blog_announcement": "https://aka.ms/threatactorsblog",
+    "json_mapping": "https://raw.githubusercontent.com/microsoft/mstic/master/PublicFeeds/ThreatActorNaming/MicrosoftMapping.json",
+    "api_documentation": "Microsoft Graph Threat Intelligence APIs",
+    "kusto_query_example": "GetThreatActorAlias function for Microsoft Defender XDR"
+  }
+}
