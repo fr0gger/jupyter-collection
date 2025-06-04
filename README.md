@@ -1,6 +1,4 @@
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/fr0gger/jupyter-collection.git/HEAD)
-
-# Notebooks, CheatSheet & More
+# Notebooks, CheatSheets & More
 This repository is a collection of some of my Jupyter Notebook, cheatsheet and other apps applied to cybersecurity and threat intelligence.
 <br /><br />
 
