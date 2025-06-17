@@ -1,0 +1,1834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Code Command Cheatsheet</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, sans-serif;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      min-height: 100vh;
+      padding: 20px;
+      line-height: 1.6;
+      color: #2d3748;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .header {
+      background: linear-gradient(135deg, #2563eb 0%, #3b82f6 50%, #1d4ed8 100%);
+      color: white;
+      padding: 60px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+      opacity: 0.3;
+    }
+    
+    .header-content {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .header h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    .header p {
+      font-size: 1.25rem;
+      opacity: 0.95;
+      margin-bottom: 32px;
+      font-weight: 500;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    
+    .social-links a {
+      color: white;
+      text-decoration: none;
+      padding: 12px;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      font-size: 1.25rem;
+    }
+    
+    .social-links a:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    
+    .content {
+      padding: 40px;
+    }
+    
+    .intro {
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+      border-left: 6px solid #2563eb;
+      padding: 32px;
+      margin-bottom: 48px;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(37, 99, 235, 0.1);
+      position: relative;
+    }
+    
+    .intro::before {
+      content: '🤖';
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 2rem;
+      opacity: 0.4;
+    }
+    
+    .intro p {
+      color: #1e40af;
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin: 0;
+    }
+    
+    .section {
+      margin-bottom: 56px;
+    }
+    
+    .section-title {
+      display: flex;
+      align-items: center;
+      padding-bottom: 24px;
+      border-bottom: 3px solid #e5e7eb;
+      margin-bottom: 32px;
+    }
+    
+    .section-title h2 {
+      font-size: 1.875rem;
+      font-weight: 800;
+      color: #1f2937;
+      margin-left: 16px;
+    }
+    
+    .icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #2563eb, #3b82f6);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: white;
+      box-shadow: 0 8px 16px rgba(37, 99, 235, 0.3);
+      border: 2px solid rgba(255, 255, 255, 0.9);
+    }
+    
+    .command-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      gap: 24px;
+    }
+    
+    .command-box {
+      background: #ffffff;
+      border: 2px solid #e5e7eb;
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .command-box:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      border-color: #2563eb;
+    }
+    
+    .command-header {
+      padding: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    
+    .command-content {
+      flex: 1;
+      min-width: 0;
+    }
+    
+    .command-code {
+      background: #1e293b;
+      color: #22d3ee;
+      padding: 20px;
+      border-radius: 12px;
+      font-family: 'JetBrains Mono', 'Fira Code', 'Monaco', 'Menlo', monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-break: break-all;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      border: 1px solid #334155;
+      position: relative;
+    }
+    
+    .command-code::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #22d3ee, transparent);
+      opacity: 0.6;
+    }
+    
+    .command-description {
+      color: #4b5563;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+    
+    .copy-btn {
+      background: #f8fafc;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+      font-size: 1.125rem;
+      min-width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .copy-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      transition: left 0.5s;
+    }
+    
+    .copy-btn:hover {
+      background: #2563eb;
+      border-color: #2563eb;
+      color: white;
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(37, 99, 235, 0.3);
+    }
+    
+    .copy-btn:hover::before {
+      left: 100%;
+    }
+    
+    .copy-btn.copied {
+      background: #059669;
+      color: white;
+      border-color: #059669;
+      transform: scale(1.1);
+    }
+    
+    .tip-box {
+      background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+      border-left: 6px solid #f59e0b;
+      padding: 24px;
+      border-radius: 16px;
+      margin: 24px 0;
+      box-shadow: 0 4px 16px rgba(245, 158, 11, 0.1);
+      position: relative;
+    }
+    
+    .tip-box p {
+      color: #92400e;
+      font-weight: 700;
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+    }
+    
+    .tip-box ul {
+      color: #92400e;
+      margin-left: 24px;
+      font-weight: 500;
+    }
+    
+    .tip-box li {
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+    
+    .tip-box code {
+      background: rgba(245, 158, 11, 0.2);
+      padding: 4px 8px;
+      border-radius: 6px;
+      color: #78350f;
+      font-weight: 600;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+    
+    /* Specialized tip box colors */
+    .tip-box.info {
+      background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+      border-left-color: #2563eb;
+      box-shadow: 0 4px 16px rgba(37, 99, 235, 0.1);
+    }
+    
+    .tip-box.info p, .tip-box.info ul, .tip-box.info li {
+      color: #1e40af;
+    }
+    
+    .tip-box.success {
+      background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+      border-left-color: #16a34a;
+      box-shadow: 0 4px 16px rgba(22, 163, 74, 0.1);
+    }
+    
+    .tip-box.success p, .tip-box.success ul, .tip-box.success li {
+      color: #15803d;
+    }
+    
+    .tip-box.purple {
+      background: linear-gradient(135deg, #e9d5ff 0%, #ddd6fe 100%);
+      border-left-color: #7c3aed;
+      box-shadow: 0 4px 16px rgba(124, 58, 237, 0.1);
+    }
+    
+    .tip-box.purple p, .tip-box.purple ul, .tip-box.purple li {
+      color: #6b21a8;
+    }
+    
+    .tip-box.danger {
+      background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+      border-left-color: #dc2626;
+      box-shadow: 0 4px 16px rgba(220, 38, 38, 0.1);
+    }
+    
+    .tip-box.danger p, .tip-box.danger ul, .tip-box.danger li {
+      color: #991b1b;
+    }
+    
+    .danger-zone {
+      background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+      border: 2px solid #f87171;
+      border-radius: 20px;
+      padding: 32px;
+      margin-bottom: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .danger-zone::before {
+      content: '⚠️';
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 2rem;
+      opacity: 0.4;
+    }
+    
+    .danger-title {
+      color: #dc2626;
+      font-weight: 800;
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .danger-text {
+      color: #991b1b;
+      font-weight: 600;
+      margin-bottom: 24px;
+      font-size: 1.1rem;
+    }
+    
+    .config-box {
+      position: relative;
+      margin: 32px 0;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+    
+    .config-code {
+      background: #1e293b;
+      color: #22d3ee;
+      padding: 32px;
+      font-family: 'JetBrains Mono', 'Fira Code', 'Monaco', 'Menlo', monospace;
+      font-size: 14px;
+      line-height: 1.6;
+      overflow-x: auto;
+      white-space: pre;
+      border: 1px solid #334155;
+    }
+    
+    .config-copy {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: #374151;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 16px;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 600;
+      opacity: 0;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+    
+    .config-box:hover .config-copy {
+      opacity: 1;
+    }
+    
+    .config-copy:hover {
+      background: #4b5563;
+      transform: scale(1.05);
+    }
+    
+    .footer {
+      margin-top: 64px;
+      padding: 40px;
+      text-align: center;
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      border-top: 1px solid #e2e8f0;
+      color: #64748b;
+    }
+    
+    .footer p {
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 24px;
+    }
+    
+    .footer-social a {
+      color: #64748b;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 500;
+    }
+    
+    .footer-social a:hover {
+      color: #2563eb;
+      background: rgba(37, 99, 235, 0.1);
+      transform: translateY(-1px);
+    }
+    
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+      
+      .header {
+        padding: 40px 20px;
+      }
+      
+      .header h1 {
+        font-size: 2.5rem;
+      }
+      
+      .content {
+        padding: 20px;
+      }
+      
+      .command-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .command-header {
+        flex-direction: column;
+        gap: 16px;
+      }
+      
+      .copy-btn {
+        align-self: flex-start;
+      }
+      
+      .social-links {
+        flex-wrap: wrap;
+      }
+    }
+    
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(135deg, #2563eb, #3b82f6);
+      border-radius: 4px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(135deg, #1d4ed8, #2563eb);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <div class="header-content">
+        <h1>Claude Code</h1>
+        <p>The Complete Command Cheatsheet</p>
+        <p style="font-size: 1rem; opacity: 0.8; margin-bottom: 32px;">Created by Thomas Roccia</p>
+        
+        <div class="social-links">
+          <a href="https://x.com/fr0gger_" target="_blank" aria-label="Twitter">🐦</a>
+          <a href="https://www.linkedin.com/in/thomas-roccia/" target="_blank" aria-label="LinkedIn">💼</a>
+          <a href="https://infosec.exchange/@fr0gger" target="_blank" aria-label="Mastodon">🐘</a>
+          <a href="https://securitybreak.io/" target="_blank" aria-label="Website">🌐</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="content">
+      <!-- Introduction -->
+      <div class="intro">
+        <p>Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster through natural language commands.</p>
+      </div>
+
+      <!-- Installation & Setup -->
+      <div class="section">
+        <div class="section-title">
+          <div class="icon">⚙️</div>
+          <h2>Installation & Setup</h2>
+        </div>
+        
+        <div class="command-grid">
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">npm install -g @anthropic-ai/claude-code</div>
+                <div class="command-description">Install Claude Code globally via npm</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'npm install -g @anthropic-ai/claude-code')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">claude</div>
+                <div class="command-description">Start Claude Code (will prompt for authentication on first run)</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'claude')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">claude update</div>
+                <div class="command-description">Update Claude Code to the latest version</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'claude update')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">claude --version</div>
+                <div class="command-description">Check your Claude Code version (confirm you're on latest)</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'claude --version')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">claude config</div>
+                <div class="command-description">Configure Claude Code settings</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'claude config')">📋</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Basic Usage -->
+      <div class="section">
+        <div class="section-title">
+          <div class="icon">🚀</div>
+          <h2>Basic Usage</h2>
+        </div>
+        
+        <div class="command-grid">
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">claude</div>
+                <div class="command-description">Start interactive REPL session</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'claude')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">claude "explain this project"</div>
+                <div class="command-description">Start REPL with initial prompt</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'claude &quot;explain this project&quot;')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">claude -p "query"</div>
+                <div class="command-description">Run one-off query, then exit (print mode)</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'claude -p &quot;query&quot;')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">cat file.py | claude -p "explain this code"</div>
+                <div class="command-description">Process piped content</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'cat file.py | claude -p &quot;explain this code&quot;')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">claude --continue</div>
+                <div class="command-description">Continue most recent conversation</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'claude --continue')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">claude --resume</div>
+                <div class="command-description">Show conversation picker to resume a session</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'claude --resume')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">/init</div>
+                <div class="command-description">Initialize project with CLAUDE.md guide</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, '/init')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">/clear</div>
+                <div class="command-description">Clear conversation history</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, '/clear')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">/compact</div>
+                <div class="command-description">Compact conversation to keep context window lean</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, '/compact')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">/compact Focus on the authentication system</div>
+                <div class="command-description">Compact conversation with custom focus instructions</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, '/compact Focus on the authentication system')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">/cost</div>
+                <div class="command-description">Show token usage statistics</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, '/cost')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">/memory</div>
+                <div class="command-description">Edit CLAUDE.md memory files</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, '/memory')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">/prime</div>
+                <div class="command-description">Load key files and information into context window</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, '/prime')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">! command</div>
+                <div class="command-description">Execute bash commands directly</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, '! command')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">@ file/path</div>
+                <div class="command-description">Reference specific file paths</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, '@ file/path')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code"># memorize this information</div>
+                <div class="command-description">Add information to memory files</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, '# memorize this information')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">Escape (double-tap)</div>
+                <div class="command-description">Undo/edit previous prompt</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'Escape (double-tap)')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">Shift + Tab</div>
+                <div class="command-description">Toggle auto-accept mode for edits</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'Shift + Tab')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">Ctrl + R</div>
+                <div class="command-description">Enable verbose output mode</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'Ctrl + R')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">\ + Enter</div>
+                <div class="command-description">Create newline in input</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, '\\ + Enter')">📋</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CLI Flags -->
+      <div class="section">
+        <div class="section-title">
+          <div class="icon">🎛️</div>
+          <h2>CLI Flags</h2>
+        </div>
+        
+        <div class="command-grid">
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">claude -p "query" --output-format json</div>
+                <div class="command-description">Output response as JSON (useful for scripting)</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'claude -p &quot;query&quot; --output-format json')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">claude -p "query" --output-format stream-json</div>
+                <div class="command-description">Stream JSON output in real-time</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'claude -p &quot;query&quot; --output-format stream-json')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">claude --verbose</div>
+                <div class="command-description">Enable verbose logging</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'claude --verbose')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">claude -p --max-turns 3 "query"</div>
+                <div class="command-description">Limit number of agentic turns</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'claude -p --max-turns 3 &quot;query&quot;')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">claude --mcp-debug</div>
+                <div class="command-description">Debug MCP server configuration issues</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'claude --mcp-debug')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">claude --dangerously-skip-permissions</div>
+                <div class="command-description">Skip all permission prompts (use with caution!)</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'claude --dangerously-skip-permissions')">📋</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slash Commands -->
+      <div class="section">
+        <div class="section-title">
+          <div class="icon">⚡</div>
+          <h2>Slash Commands (Interactive Mode)</h2>
+        </div>
+        
+        <div class="command-grid">
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">/config</div>
+                <div class="command-description">View/modify configuration</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, '/config')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">/review</div>
+                <div class="command-description">Request code review</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, '/review')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">/pr_comments</div>
+                <div class="command-description">View pull request comments</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, '/pr_comments')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">/doctor</div>
+                <div class="command-description">Check Claude Code installation health</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, '/doctor')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">/login</div>
+                <div class="command-description">Switch Anthropic accounts</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, '/login')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">/logout</div>
+                <div class="command-description">Sign out from your Anthropic account</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, '/logout')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">/vim</div>
+                <div class="command-description">Enter vim mode for alternating insert and command modes</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, '/vim')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">/terminal-setup</div>
+                <div class="command-description">Install Shift+Enter key binding for newlines (iTerm2 and VSCode only)</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, '/terminal-setup')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">/bug</div>
+                <div class="command-description">Report bugs (sends conversation to Anthropic)</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, '/bug')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">/help</div>
+                <div class="command-description">Get usage help</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, '/help')">📋</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Custom Commands -->
+      <div class="section">
+        <div class="section-title">
+          <div class="icon">🛠️</div>
+          <h2>Custom Slash Commands</h2>
+        </div>
+        
+        <div class="command-grid">
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">echo "Analyze performance and suggest optimizations:" > .claude/commands/optimize.md</div>
+                <div class="command-description">Create project-level custom command (available as /project:optimize)</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'echo &quot;Analyze performance and suggest optimizations:&quot; > .claude/commands/optimize.md')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">echo "Review code for security vulnerabilities:" > ~/.claude/commands/security-review.md</div>
+                <div class="command-description">Create global custom command (available in all projects)</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'echo &quot;Review code for security vulnerabilities:&quot; > ~/.claude/commands/security-review.md')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">echo "Fix issue #$ARGUMENTS with tests and PR description" > .claude/commands/fix-issue.md</div>
+                <div class="command-description">Create parameterized command (use with /project:fix-issue 123)</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'echo &quot;Fix issue #$ARGUMENTS with tests and PR description&quot; > .claude/commands/fix-issue.md')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code"># Add instant memory</div>
+                <div class="command-description">Start input with # to quickly add to memory files</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, '# Add instant memory')">📋</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Advanced Workflows -->
+      <div class="section">
+        <div class="section-title">
+          <div class="icon">🎯</div>
+          <h2>Advanced Workflows</h2>
+        </div>
+        
+        <div class="command-grid">
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">claude -p "Find all TODO comments and fix them" --max-turns 10</div>
+                <div class="command-description">Automated task with multiple turns</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'claude -p &quot;Find all TODO comments and fix them&quot; --max-turns 10')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">for file in *.py; do claude -p "Add type hints:" < "$file"; done</div>
+                <div class="command-description">Process multiple files with Claude</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'for file in *.py; do claude -p &quot;Add type hints:&quot; < &quot;$file&quot;; done')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">git worktree add ../project-feature-a -b feature-a</div>
+                <div class="command-description">Create Git worktree for parallel Claude Code sessions</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'git worktree add ../project-feature-a -b feature-a')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">claude -c -p "Continue debugging from yesterday"</div>
+                <div class="command-description">Continue previous session in print mode</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'claude -c -p &quot;Continue debugging from yesterday&quot;')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">claude -p "think deeply about implementing OAuth2" --output-format json</div>
+                <div class="command-description">Extended thinking with JSON output for parsing</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'claude -p &quot;think deeply about implementing OAuth2&quot; --output-format json')">📋</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MCP & Integrations -->
+      <div class="section">
+        <div class="section-title">
+          <div class="icon">🔌</div>
+          <h2>MCP & Integrations</h2>
+        </div>
+        
+        <div class="command-grid">
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">claude mcp</div>
+                <div class="command-description">Configure Model Context Protocol servers</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'claude mcp')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">claude --mcp-debug</div>
+                <div class="command-description">Launch with MCP debugging enabled</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'claude --mcp-debug')">📋</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="tip-box">
+          <p><strong>MCP Integration:</strong></p>
+          <ul>
+            <li>Add servers to <code>.mcp.json</code> file for team sharing</li>
+            <li>Use project config for repository-specific tools</li>
+            <li>Claude Code functions as both MCP server and client</li>
+            <li>Examples: Puppeteer, Sentry, GitHub, filesystem tools</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Prompt Engineering Tips -->
+      <div class="section">
+        <div class="section-title">
+          <div class="icon">💬</div>
+          <h2>Prompt Engineering Tips</h2>
+        </div>
+        
+        <div class="command-grid">
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">be concise</div>
+                <div class="command-description">Force short, focused answers from Claude</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'be concise')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">read the entire file first</div>
+                <div class="command-description">Force Claude to read complete files before responding</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'read the entire file first')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">think deeply about this</div>
+                <div class="command-description">Trigger extended reasoning and deeper analysis</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'think deeply about this')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">think harder</div>
+                <div class="command-description">Intensify Claude's reasoning process</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'think harder')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">make a plan first, don't code yet</div>
+                <div class="command-description">Force planning phase before implementation</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'make a plan first, don\\'t code yet')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">break this into small testable steps</div>
+                <div class="command-description">Get incremental, verifiable progress</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'break this into small testable steps')">📋</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Complete Plan Mode Guide -->
+      <div class="section">
+        <div class="section-title">
+          <div class="icon">🎯</div>
+          <h2>Complete Plan Mode Guide</h2>
+        </div>
+        
+        <div class="tip-box info">
+          <p><strong>What is Plan Mode?</strong></p>
+          <ul>
+            <li>A special operating mode where Claude Code only reads, analyzes, and plans—no file edits, commands, or commits</li>
+            <li>Mirrors senior engineer workflow: <strong>understand first, plan second, build third</strong></li>
+            <li>Used to load context window with all relevant information before any code changes</li>
+          </ul>
+        </div>
+
+        <div class="command-grid">
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">Shift + Tab (twice)</div>
+                <div class="command-description">Enter Plan Mode - Claude restricted from making file changes or running commands</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'Shift + Tab (twice)')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">/prime</div>
+                <div class="command-description">Load key files and information into context window before planning</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, '/prime')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">Correct me if I'm wrong, but...</div>
+                <div class="command-description">Validate assumptions and get neutral, unbiased feedback</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'Correct me if I\\'m wrong, but...')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">write a detailed specification for this feature in specs/</div>
+                <div class="command-description">Create comprehensive plan/spec file for complex features</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'write a detailed specification for this feature in specs/')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">analyze the codebase and create an implementation plan</div>
+                <div class="command-description">Have Claude understand and plan before building</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'analyze the codebase and create an implementation plan')">📋</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="tip-box">
+          <p><strong>Core Principles:</strong></p>
+          <ul>
+            <li><strong>No Mutations:</strong> Cannot create, modify, or delete files (including plan.md/spec files)</li>
+            <li><strong>Context Building:</strong> Read files and understand codebase, fill context window with key info</li>
+            <li><strong>Ask Questions:</strong> Freely ask clarifying or "stupid" questions to validate assumptions</li>
+            <li><strong>Validate Understanding:</strong> Use "Correct me if I'm wrong" for unbiased feedback</li>
+          </ul>
+        </div>
+
+        <div class="tip-box success">
+          <p><strong>Recommended Workflows:</strong></p>
+          <ul>
+            <li><strong>Plan → Execute (Quick Tasks):</strong> For small, simple changes</li>
+            <li><strong>Plan → Write Spec → Execute (Mid/Large Features):</strong> Recommended for most work</li>
+            <li>In Plan Mode: analyze, create detailed specification</li>
+            <li>Review and iterate on the plan</li>
+            <li>Exit Plan Mode and execute according to the spec</li>
+          </ul>
+        </div>
+
+        <div class="tip-box">
+          <p><strong>Best Practices:</strong></p>
+          <ul>
+            <li><strong>Be Explicit:</strong> Clearly state what you want planned - more explicit = better plan</li>
+            <li><strong>Prime the Context:</strong> Use <code>/prime</code> to load key files before planning</li>
+            <li><strong>Iterate on Plans:</strong> Ask follow-up questions to clarify and capture all requirements</li>
+            <li><strong>Store Plans:</strong> Save specs in dedicated directory (e.g., <code>specs/</code>) for review and version control</li>
+            <li><strong>Higher-Order Prompts:</strong> Treat plans as prompts for agents - pass specs as parameters</li>
+            <li><strong>Parallelize Work:</strong> Use agentic loops for multi-agent, parallel development</li>
+          </ul>
+        </div>
+
+        <div class="tip-box purple">
+          <p><strong>Why Use Plan Mode?</strong></p>
+          <ul>
+            <li><strong>Safety:</strong> No risk of accidental file changes or destructive actions</li>
+            <li><strong>Clarity:</strong> Forces full understanding of problem and requirements before building</li>
+            <li><strong>Efficiency:</strong> Reduces wasted time by ensuring right approach before execution</li>
+            <li><strong>Scalability:</strong> Enables complex, multi-agent workflows with clear, shared plan</li>
+          </ul>
+        </div>
+
+        <div class="config-box">
+          <div style="padding: 32px; background: #ffffff; border-radius: 16px;">
+            <h3 style="color: #1f2937; margin-bottom: 24px; font-size: 1.25rem; font-weight: 700;">Plan Mode Summary Table</h3>
+            <div style="overflow-x: auto;">
+              <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+                <thead>
+                  <tr style="background: #f8fafc; border-bottom: 2px solid #e2e8f0;">
+                    <th style="padding: 16px; text-align: left; font-weight: 700; color: #374151; border-right: 1px solid #e2e8f0;">Step</th>
+                    <th style="padding: 16px; text-align: left; font-weight: 700; color: #374151;">Action/Advice</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="border-bottom: 1px solid #f1f5f9;">
+                    <td style="padding: 12px 16px; font-weight: 600; color: #2563eb; border-right: 1px solid #e2e8f0;">Enter Plan Mode</td>
+                    <td style="padding: 12px 16px; color: #4b5563;">Shift+Tab twice</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid #f1f5f9; background: #fafafa;">
+                    <td style="padding: 12px 16px; font-weight: 600; color: #2563eb; border-right: 1px solid #e2e8f0;">No Mutations</td>
+                    <td style="padding: 12px 16px; color: #4b5563;">Only reads/analyzes, never edits files</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid #f1f5f9;">
+                    <td style="padding: 12px 16px; font-weight: 600; color: #2563eb; border-right: 1px solid #e2e8f0;">Build Context</td>
+                    <td style="padding: 12px 16px; color: #4b5563;">Load key files/info before planning</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid #f1f5f9; background: #fafafa;">
+                    <td style="padding: 12px 16px; font-weight: 600; color: #2563eb; border-right: 1px solid #e2e8f0;">Ask Questions</td>
+                    <td style="padding: 12px 16px; color: #4b5563;">Validate assumptions, use "Correct me if I'm wrong"</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid #f1f5f9;">
+                    <td style="padding: 12px 16px; font-weight: 600; color: #2563eb; border-right: 1px solid #e2e8f0;">Plan → Execute</td>
+                    <td style="padding: 12px 16px; color: #4b5563;">For quick tasks: plan, then build</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid #f1f5f9; background: #fafafa;">
+                    <td style="padding: 12px 16px; font-weight: 600; color: #2563eb; border-right: 1px solid #e2e8f0;">Plan → Spec → Execute</td>
+                    <td style="padding: 12px 16px; color: #4b5563;">For big tasks: plan, write spec, review, then build</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid #f1f5f9;">
+                    <td style="padding: 12px 16px; font-weight: 600; color: #2563eb; border-right: 1px solid #e2e8f0;">Store Plans</td>
+                    <td style="padding: 12px 16px; color: #4b5563;">Save specs in dedicated directory</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid #f1f5f9; background: #fafafa;">
+                    <td style="padding: 12px 16px; font-weight: 600; color: #2563eb; border-right: 1px solid #e2e8f0;">Parallel Agents</td>
+                    <td style="padding: 12px 16px; color: #4b5563;">Use agentic loops for multi-agent, parallel work</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid #f1f5f9;">
+                    <td style="padding: 12px 16px; font-weight: 600; color: #2563eb; border-right: 1px solid #e2e8f0;">Higher-Order Prompts</td>
+                    <td style="padding: 12px 16px; color: #4b5563;">Treat plans as prompts for agents</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 12px 16px; font-weight: 600; color: #2563eb; border-right: 1px solid #e2e8f0; background: #fafafa;">Review & Iterate</td>
+                    <td style="padding: 12px 16px; color: #4b5563; background: #fafafa;">Always review and refine plans before execution</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <button class="config-copy plan-copy" onclick="copyPlanTable()">📋 Copy</button>
+        </div>
+
+        <div class="tip-box danger">
+          <p><strong>Key Takeaways:</strong></p>
+          <ul>
+            <li><strong>The plan is the prompt:</strong> Well-crafted plan/spec is foundation for effective agentic coding</li>
+            <li><strong>Think, then build:</strong> Always plan before coding - new standard for AI-augmented engineering</li>
+            <li><strong>Set up codebase for agents:</strong> Organize files, specs, and context to maximize agent productivity</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Plan Mode vs Auto Accept -->
+      <div class="section">
+        <div class="section-title">
+          <div class="icon">🤔</div>
+          <h2>Plan Mode vs Auto Accept Mode</h2>
+        </div>
+        
+        <div class="command-grid">
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">Shift + Tab</div>
+                <div class="command-description">Toggle between Plan Mode and Auto Accept Mode</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'Shift + Tab')">📋</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="tip-box">
+          <p><strong>Plan Mode:</strong></p>
+          <ul>
+            <li>Claude asks for permission before each action</li>
+            <li>Best for: thinking, clarifying, and iterating before executing</li>
+            <li>Use when: working on critical code or unfamiliar tasks</li>
+            <li>Allows you to guide and course-correct Claude's approach</li>
+          </ul>
+        </div>
+
+        <div class="tip-box success">
+          <p><strong>Auto Accept Mode:</strong></p>
+          <ul>
+            <li>Claude executes changes automatically without asking</li>
+            <li>Best for: trusted operations and repetitive tasks</li>
+            <li>Use when: you trust Claude's judgment on the task</li>
+            <li>Monitor the context usage indicator during auto mode</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Project Management & Planning -->
+      <div class="section">
+        <div class="section-title">
+          <div class="icon">📋</div>
+          <h2>Project Management & Planning</h2>
+        </div>
+        
+        <div class="command-grid">
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">echo "# Attack Plan\n## Goals\n## Steps\n## Progress" > plan.md</div>
+                <div class="command-description">Create markdown file for tracking plans and progress</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'echo &quot;# Attack Plan\\n## Goals\\n## Steps\\n## Progress&quot; > plan.md')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">use the plan.md file as a checklist and update progress</div>
+                <div class="command-description">Have Claude maintain project progress in markdown files</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'use the plan.md file as a checklist and update progress')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">consult multiple models for this critical decision</div>
+                <div class="command-description">Get second opinions for important architectural choices</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'consult multiple models for this critical decision')">📋</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="tip-box">
+          <p><strong>Project Management Best Practices:</strong></p>
+          <ul>
+            <li>Use markdown files (.md) for attack plans and progress tracking</li>
+            <li>Break big refactors into small, testable steps</li>
+            <li>Have Claude update progress in your planning documents</li>
+            <li>For critical decisions, consult multiple AI models (Claude, Gemini, GPT-4)</li>
+            <li>Keep a running checklist of completed vs pending tasks</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Keyboard Shortcuts & Navigation -->
+      <div class="section">
+        <div class="section-title">
+          <div class="icon">⌨️</div>
+          <h2>Keyboard Shortcuts & Navigation</h2>
+        </div>
+        
+        <div class="command-grid">
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">\ + Enter</div>
+                <div class="command-description">Quick escape to create newline</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, '\\ + Enter')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">Option + Enter</div>
+                <div class="command-description">Add newline (Meta+Enter with proper terminal config)</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'Option + Enter')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">Shift + Tab</div>
+                <div class="command-description">Toggle auto-accept mode</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'Shift + Tab')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">Escape</div>
+                <div class="command-description">Interrupt Claude during any phase (thinking, tool calls, file edits)</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'Escape')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">Escape (double-tap)</div>
+                <div class="command-description">Jump back in history and edit previous prompt</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'Escape (double-tap)')">📋</button>
+            </div>
+          </div>
+
+          <div class="command-box">
+            <div class="command-header">
+              <div class="command-content">
+                <div class="command-code">Arrow Keys</div>
+                <div class="command-description">Navigate conversation picker when resuming sessions</div>
+              </div>
+              <button class="copy-btn" onclick="copyCommand(this, 'Arrow Keys')">📋</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="tip-box">
+          <p><strong>Hidden Features:</strong></p>
+          <ul>
+            <li>View previous chats: Access via Claude Code UI in your current folder</li>
+            <li>Context usage indicator: Monitor context window fill in the UI</li>
+            <li>Double-tap Escape: Powerful feature for iterating on prompts</li>
+            <li>Use <code>/compact</code> before context window fills for best performance</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Dangerous Operations -->
+      <div class="section">
+        <div class="section-title">
+          <div class="icon">🗑️</div>
+          <h2>Dangerous Operations</h2>
+        </div>
+        
+        <div class="danger-zone">
+          <div class="danger-title">⚠️ DANGER ZONE</div>
+          <div class="danger-text">The following commands can cause data loss or unexpected behavior. Use with extreme caution!</div>
+          
+          <div class="command-grid">
+            <div class="command-box">
+              <div class="command-header">
+                <div class="command-content">
+                  <div class="command-code">claude --dangerously-skip-permissions</div>
+                  <div class="command-description">🔥 Skip ALL permission prompts (Claude can modify/delete files without asking)</div>
+                </div>
+                <button class="copy-btn" onclick="copyCommand(this, 'claude --dangerously-skip-permissions')">📋</button>
+              </div>
+            </div>
+
+            <div class="command-box">
+              <div class="command-header">
+                <div class="command-content">
+                  <div class="command-code">claude -p "Delete all test files" --dangerously-skip-permissions</div>
+                  <div class="command-description">🔥 Automated destructive operations without confirmation</div>
+                </div>
+                <button class="copy-btn" onclick="copyCommand(this, 'claude -p &quot;Delete all test files&quot; --dangerously-skip-permissions')">📋</button>
+              </div>
+            </div>
+
+            <div class="command-box">
+              <div class="command-header">
+                <div class="command-content">
+                  <div class="command-code">rm -rf .claude/</div>
+                  <div class="command-description">🔥 Remove all Claude Code configuration and memory (PERMANENT!)</div>
+                </div>
+                <button class="copy-btn" onclick="copyCommand(this, 'rm -rf .claude/')">📋</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Configuration -->
+      <div class="section">
+        <div class="section-title">
+          <div class="icon">⚙️</div>
+          <h2>Configuration Examples</h2>
+        </div>
+        
+        <p style="margin-bottom: 24px; font-size: 1.1rem; color: #64748b; font-weight: 500;">Example settings.json configuration:</p>
+        
+        <div class="config-box">
+          <div class="config-code">{
+  "permissions": {
+    "allow": [
+      "Bash(npm run lint)",
+      "Bash(npm run test:*)",
+      "Read(~/.zshrc)"
+    ],
+    "deny": [
+      "Bash(curl:*)"
+    ]
+  },
+  "env": {
+    "CLAUDE_CODE_ENABLE_TELEMETRY": "1",
+    "NODE_ENV": "development"
+  },
+  "theme": "dark",
+  "auto_accept": false,
+  "max_turns": 10
+}</div>
+          <button class="config-copy" onclick="copyConfig()">📋 Copy</button>
+        </div>
+        
+        <div class="tip-box">
+          <p><strong>Configuration Hierarchy:</strong></p>
+          <ul>
+            <li><code>~/.claude/settings.json</code> - Global user settings</li>
+            <li><code>.claude/settings.json</code> - Project settings (checked into git)</li>
+            <li><code>.claude/settings.local.json</code> - Local overrides (not checked in)</li>
+            <li>Enterprise policies take precedence over all user settings</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Best Practices -->
+      <div class="section">
+        <div class="section-title">
+          <div class="icon">💡</div>
+          <h2>Best Practices</h2>
+        </div>
+        
+        <div class="tip-box">
+          <p><strong>Effective Usage Tips:</strong></p>
+          <ul>
+            <li>Use <code>/init</code> to create CLAUDE.md for better context</li>
+            <li>Use <code>/compact</code> frequently before context window fills</li>
+            <li>Master Plan Mode: Enter with Shift+Tab twice for safe analysis and planning</li>
+            <li>Ask Claude to make a plan before coding with "make a plan first, don't code yet"</li>
+            <li>Use auto-accept mode (Shift+Tab) for trusted operations</li>
+            <li>Create custom slash commands for repeated workflows</li>
+            <li>Use Git worktrees for parallel Claude sessions</li>
+            <li>Monitor costs with <code>/cost</code> command and context usage in UI</li>
+            <li>Start small and scale up for complex tasks</li>
+            <li>Use <code>think deeply</code> for complex architectural decisions</li>
+            <li>Use MCP servers for extended functionality</li>
+            <li>Use markdown files for project planning and progress tracking</li>
+            <li>Break big refactors into small, testable steps</li>
+            <li>Use "be concise" for focused answers, "read the entire file first" for complete analysis</li>
+            <li>Double-tap Escape to edit and iterate on previous prompts</li>
+            <li>Consult multiple AI models for critical architectural decisions</li>
+            <li>Follow Plan → Spec → Execute workflow for complex features</li>
+            <li>Store specifications in dedicated <code>specs/</code> directory</li>
+            <li>Use "Correct me if I'm wrong" to validate assumptions in Plan Mode</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="footer">
+        <p>Claude Code - AI-Powered Terminal Coding Assistant</p>
+        <p>Created by Thomas Roccia</p>
+        
+        <div class="footer-social">
+          <a href="https://x.com/fr0gger_" target="_blank">🐦 Twitter</a>
+          <a href="https://www.linkedin.com/in/thomas-roccia/" target="_blank">💼 LinkedIn</a>
+          <a href="https://infosec.exchange/@fr0gger" target="_blank">🐘 Mastodon</a>
+          <a href="https://securitybreak.io/" target="_blank">🌐 Website</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Ensure functions are available globally
+    window.copyCommand = function(button, text) {
+      // Try modern clipboard API first
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(function() {
+          showCopySuccess(button);
+        }).catch(function() {
+          fallbackCopy(text, button);
+        });
+      } else {
+        fallbackCopy(text, button);
+      }
+    };
+
+    window.copyConfig = function() {
+      const configText = `{
+  "permissions": {
+    "allow": [
+      "Bash(npm run lint)",
+      "Bash(npm run test:*)",
+      "Read(~/.zshrc)"
+    ],
+    "deny": [
+      "Bash(curl:*)"
+    ]
+  },
+  "env": {
+    "CLAUDE_CODE_ENABLE_TELEMETRY": "1",
+    "NODE_ENV": "development"
+  },
+  "theme": "dark",
+  "auto_accept": false,
+  "max_turns": 10
+}`;
+
+      const button = document.querySelector('.config-copy');
+      
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(configText).then(function() {
+          button.textContent = '✅ Copied';
+          setTimeout(() => {
+            button.textContent = '📋 Copy';
+          }, 2000);
+        }).catch(function() {
+          fallbackCopy(configText, button);
+        });
+      } else {
+        fallbackCopy(configText, button);
+      }
+    };
+
+    window.copyPlanTable = function() {
+      const planTableText = `# Plan Mode Summary Table
+
+Step                    | Action/Advice
+------------------------|------------------------------------------
+Enter Plan Mode         | Shift+Tab twice
+No Mutations           | Only reads/analyzes, never edits files
+Build Context          | Load key files/info before planning
+Ask Questions          | Validate assumptions, use "Correct me if I'm wrong"
+Plan → Execute         | For quick tasks: plan, then build
+Plan → Spec → Execute  | For big tasks: plan, write spec, review, then build
+Store Plans           | Save specs in dedicated directory
+Parallel Agents       | Use agentic loops for multi-agent, parallel work
+Higher-Order Prompts  | Treat plans as prompts for agents
+Review & Iterate      | Always review and refine plans before execution`;
+
+      const button = document.querySelector('.plan-copy');
+      
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(planTableText).then(function() {
+          button.textContent = '✅ Copied';
+          setTimeout(() => {
+            button.textContent = '📋 Copy';
+          }, 2000);
+        }).catch(function() {
+          fallbackCopy(planTableText, button);
+        });
+      } else {
+        fallbackCopy(planTableText, button);
+      }
+    };
+
+    function fallbackCopy(text, button) {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      
+      try {
+        document.execCommand('copy');
+        showCopySuccess(button);
+      } catch (err) {
+        console.error('Copy failed:', err);
+        button.textContent = '❌';
+        setTimeout(() => {
+          button.textContent = '📋';
+        }, 2000);
+      }
+      
+      document.body.removeChild(textarea);
+    }
+
+    function showCopySuccess(button) {
+      button.classList.add('copied');
+      button.textContent = '✅';
+      
+      setTimeout(() => {
+        button.classList.remove('copied');
+        button.textContent = '📋';
+      }, 2000);
+    }
+
+    // Initialize when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('Claude Code Cheatsheet loaded successfully');
+    });
+  </script>
+</body>
+</html>
