@@ -2,6 +2,10 @@
 This repository is a collection of some of my Jupyter Notebook, cheatsheet and other apps applied to cybersecurity and threat intelligence.
 <br /><br />
 
+### [Claude Code CheatSheet](https://fr0gger.github.io/jupyter-collection/claude_code_cheatsheet/claude_code_cheatsheet.html)
+This file is not a notebook but this is a cheatsheet for Claude Code.
+<br /> *Published: 17 Jun 2025* <br />
+
 ### [Threat Actor Alias](https://fr0gger.github.io/jupyter-collection/graph_TA/index.html)
 This is a knowledge graph to visualize threat actors naming and aliases.
 <br /> *Published: 03 Jun 2025* <br />
