@@ -105,6 +105,8 @@
             gap: 12px;
             padding: 20px;
             margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
         }
         
         @media (max-width: 1024px) {
@@ -122,6 +124,90 @@
             transition: all 0.3s ease;
             text-align: center;
             position: relative;
+        }
+        
+        .tooltip {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(30, 41, 59, 0.98));
+            border: 1px solid rgba(96, 165, 250, 0.4);
+            border-radius: 10px;
+            padding: 14px;
+            margin-top: 10px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            z-index: 9999;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+            pointer-events: none;
+        }
+        
+        .tooltip::before {
+            content: '';
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 8px solid transparent;
+            border-bottom-color: rgba(96, 165, 250, 0.4);
+        }
+        
+        .tooltip-title {
+            color: #60a5fa;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+        }
+        
+        .tooltip-desc {
+            color: #e4e4e7;
+            font-size: 0.85rem;
+            line-height: 1.65;
+            text-align: left;
+            font-weight: 400;
+        }
+        
+        .tooltip-desc br {
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .category-card:hover .tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Adjust tooltip position for edge cards */
+        .category-card:first-child .tooltip,
+        .category-card:nth-child(2) .tooltip {
+            left: 0;
+            transform: translateX(0);
+        }
+        
+        .category-card:last-child .tooltip,
+        .category-card:nth-last-child(2) .tooltip {
+            left: auto;
+            right: 0;
+            transform: translateX(0);
+        }
+        
+        @media (max-width: 1024px) {
+            .tooltip {
+                width: 240px;
+                font-size: 0.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .tooltip {
+                display: none;
+            }
         }
 
         .category-card:hover {
@@ -307,7 +393,7 @@
             display: flex;
             justify-content: space-between;
             align-items: start;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             gap: 10px;
         }
 
@@ -356,7 +442,7 @@
         .threat-desc {
             color: #cbd5e1;
             font-size: 0.88rem;
-            margin-bottom: 12px;
+            margin-bottom: 2px;
             line-height: 1.5;
             flex-grow: 1;
         }
@@ -366,12 +452,12 @@
             font-size: 0.8rem;
             color: #94a3b8;
             background: rgba(0, 0, 0, 0.4);
-            padding: 8px 10px;
+            padding: 6px 8px;
             border-radius: 6px;
             border-left: 2px solid #60a5fa;
             margin-top: auto;
             word-break: break-word;
-            line-height: 1.4;
+            line-height: 1.3;
         }
         
         .example-label {
@@ -527,21 +613,37 @@
                 <div class="category-count">38 Attack Vectors</div>
             </div>
             <div class="category-card" id="cat-manipulation" onclick="showCategory('manipulation')">
+                <div class="tooltip">
+                    <div class="tooltip-title">Prompt Manipulation</div>
+                    <div class="tooltip-desc">Attacks where an adversary alters or overrides the model's intended behavior by embedding instructions in user inputs or external data sources. This includes jailbreak attempts that bypass safeguards, prompt injections (direct or indirect) that force unauthorized actions, and hidden instructions concealed within comments, code blocks, or other structures.</div>
+                </div>
                 <div class="category-icon">🎭</div>
                 <div class="category-title">Prompt Manipulation</div>
                 <div class="category-count">7 Attack Vectors</div>
             </div>
             <div class="category-card" id="cat-abuse" onclick="showCategory('abuse')">
+                <div class="tooltip">
+                    <div class="tooltip-title">Abusing Legitimate Functions</div>
+                    <div class="tooltip-desc">Attacks that exploit the model's intended capabilities to perform harmful or malicious tasks. Examples include generating disinformation or influence content, assisting in malware development or obfuscation, extracting sensitive information through crafted prompts, or enabling social engineering and fraud. These attacks do not necessarily bypass restrictions but instead misuse the model's normal functions for adversarial goals.</div>
+                </div>
                 <div class="category-icon">⚠️</div>
                 <div class="category-title">Function Abuse</div>
                 <div class="category-count">14 Attack Vectors</div>
             </div>
             <div class="category-card" id="cat-patterns" onclick="showCategory('patterns')">
+                <div class="tooltip">
+                    <div class="tooltip-title">Suspicious Patterns</div>
+                    <div class="tooltip-desc">Prompt structures that signal malicious intent or evasion attempts. These patterns often hide instructions through obfuscation, Unicode manipulation, or token perturbation. They may also involve chained injections where outputs are re-used to escalate control, or fragmented instructions spread across multiple prompts to bypass filters and detection mechanisms.</div>
+                </div>
                 <div class="category-icon">🔍</div>
                 <div class="category-title">Suspicious Patterns</div>
                 <div class="category-count">9 Attack Vectors</div>
             </div>
             <div class="category-card" id="cat-outputs" onclick="showCategory('outputs')">
+                <div class="tooltip">
+                    <div class="tooltip-title">Abnormal Outputs</div>
+                    <div class="tooltip-desc">Model responses that indicate compromise or unintended disclosure. This includes leaking the system prompt, internal policies, or reasoning; exposing credentials, API keys, or personal data; and producing harmful or illegal content such as exploit code, misinformation, or guidance for attacks. Abnormal outputs serve as observable indicators that the system has been manipulated or misused.</div>
+                </div>
                 <div class="category-icon">📤</div>
                 <div class="category-title">Abnormal Outputs</div>
                 <div class="category-count">8 Attack Vectors</div>
@@ -858,10 +960,22 @@
             btn.classList.add('active');
             
             const container = document.getElementById('threats-grid');
+            const cards = document.querySelectorAll('.threat-card');
+            
             if (view === 'list') {
                 container.style.gridTemplateColumns = '1fr';
+                container.style.gap = '10px';
+                cards.forEach(card => {
+                    card.style.minHeight = '140px';
+                    card.style.padding = '12px';
+                });
             } else {
                 container.style.gridTemplateColumns = 'repeat(auto-fill, minmax(280px, 1fr))';
+                container.style.gap = '16px';
+                cards.forEach(card => {
+                    card.style.minHeight = '190px';
+                    card.style.padding = '16px';
+                });
             }
         }
 
