@@ -20,7 +20,7 @@ In the second part, we will build a RAG system to interact dynamically with the 
 
 By the end of this notebook, you will have a solid workflow for analyzing this kind of data.
 
-*`<shameless_plug>` If you want to take your skills even further, check out my [training on GenAI for Threat Intel](https://store.securitybreak.io/ctiai) `</shameless_plug>`*
+*`<shameless_plug>` If you want to take your skills even further, check out my [training on GenAI for Threat Intel](https://securitybreak.io/training) `</shameless_plug>`*
 
 Let's jump into the analysis 👇
 
